@@ -1,4 +1,4 @@
-# badger-cli
+# badger-gui
 
 ![Go Version](https://img.shields.io/badge/Go-1.25+-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
@@ -7,33 +7,35 @@
 A fast, minimal, keyboard-driven terminal UI for safely inspecting and
 managing BadgerDB databases.
 
-------------------------------------------------------------------------
+
 
 ## Demo
 
 <a href="https://asciinema.org/a/J4M30sOp6pAQSNu6?autoplay=1"><img src="https://asciinema.org/a/J4M30sOp6pAQSNu6.svg" alt="asciinema CLI demo" width="100%" /></a>
 
-------------------------------------------------------------------------
-
 ## Overview
 
-BadgerDB is a high-performance embedded key-value store designed for
-modern workloads.
+**badger-gui** is a cross-platform CLI GUI built for developers who work directly with embedded BadgerDB databases.
 
-While its programmatic API is powerful, exploring large keyspaces during
-development, debugging, or incident analysis often requires temporary
-scripts or ad-hoc tooling.
+It provides a focused, keyboard-driven interface for exploring, inspecting, and safely modifying key-value data — without writing temporary scripts or ad-hoc tooling.
 
-**badger-gui** provides a focused, zero-dependency terminal interface
-that complements programmatic workflows with fast visual inspection and
-safe manipulation capabilities.
+Designed to stay out of your way, badger-gui is intentionally lightweight and runs directly against your existing Badger database.
 
-It is intentionally lightweight and designed for developers working
-directly with embedded Badger databases.
+Built in Go, it runs natively on:
 
-------------------------------------------------------------------------
+- Linux
+- macOS
+- Windows
 
-## Built on BadgerDB
+No external services.  
+No background daemons.  
+No database server required.
+
+It operates directly on the embedded Badger database, acting purely as an interactive inspection and controlled mutation layer.
+
+badger-gui is built for engineers who want to stay close to their data during development, debugging, and incident analysis.
+
+## Built for BadgerDB
 
 This tool uses **BadgerDB**, a high-performance embedded key-value
 database written in Go.
@@ -49,9 +51,7 @@ Badger provides:
 -   Value log separation
 -   Fully embeddable design
 
-badger-cli acts purely as an inspection and controlled mutation layer.
-
-------------------------------------------------------------------------
+badger-gui acts purely as an inspection and controlled mutation layer.
 
 ## Philosophy
 
@@ -65,11 +65,9 @@ badger-cli acts purely as an inspection and controlled mutation layer.
 This tool does not replace application-level logic.\
 It provides a controlled inspection layer for developers.
 
-------------------------------------------------------------------------
-
 ## Architecture
 
-badger-cli follows a minimal layered architecture with explicit
+badger-gui follows a minimal layered architecture with explicit
 responsibility boundaries.
 
 ### High-Level Flow
@@ -118,7 +116,6 @@ responsibility boundaries.
 -   No background goroutines mutating state
 -   Serialized database access through transactions
 
-------------------------------------------------------------------------
 
 ## Features
 
@@ -135,7 +132,6 @@ responsibility boundaries.
 -   Group counts by prefix
 -   About dialog (F1)
 
-------------------------------------------------------------------------
 
 ## Installation
 
@@ -145,41 +141,37 @@ Go 1.25+
 
 ### Build from source
 
-    go build -o badger-cli .
+    go build -o badger-gui .
 
-------------------------------------------------------------------------
 
 ## Usage
 
-    ./badger-cli --dbpath ./data/badger
+    ./badger-gui --dbpath ./data/badger
 
 Short flag:
 
-    ./badger-cli -d ./data/badger
+    ./badger-gui -d ./data/badger
 
-------------------------------------------------------------------------
 
 ## Keybindings
 
-  Key             Action
-  --------------- --------------------------------
-  ↑ / ↓           Navigate key list
-  Enter           Load value & focus right panel
-  Esc / Shift+←   Return to key list
-  /               Filter keys
-  t               Text view
-  h               Hex view
-  b               Base64 view
-  j               JSON view
-  e               Edit value
-  Ctrl+S          Save edited value
-  d / Delete      Delete selected key
-  p               Delete by pattern
-  g               Group counts by prefix
-  F1              About
-  q               Quit
-
-------------------------------------------------------------------------
+| Key             | Action                                  |
+|-----------------|------------------------------------------|
+| ↑ / ↓           | Navigate key list                       |
+| Enter           | Load value & focus right panel          |
+| Esc / Shift+←   | Return to key list                      |
+| /               | Filter keys                             |
+| t               | Text view                               |
+| h               | Hex view                                |
+| b               | Base64 view                             |
+| j               | JSON view                               |
+| e               | Edit value                              |
+| Ctrl+S          | Save edited value                       |
+| d / Delete      | Delete selected key                     |
+| p               | Delete by pattern                       |
+| g               | Group counts by prefix                  |
+| F1              | About                                   |
+| q               | Quit                                    |
 
 ## Performance Characteristics
 
@@ -191,7 +183,6 @@ Short flag:
 
 Performance largely depends on disk I/O.
 
-------------------------------------------------------------------------
 
 ## Safety Notes
 
@@ -201,7 +192,7 @@ Performance largely depends on disk I/O.
 -   Editing respects selected format
 -   No background tasks
 
-------------------------------------------------------------------------
+
 
 ## Troubleshooting
 
@@ -221,7 +212,6 @@ If necessary:
 
     export TERM=xterm-256color
 
-------------------------------------------------------------------------
 
 ### Colors look incorrect or limited
 
@@ -231,7 +221,6 @@ Verify color support:
 
 The output should be `256`.
 
-------------------------------------------------------------------------
 
 ### Running inside tmux
 
@@ -244,15 +233,11 @@ Restart tmux:
 
     tmux kill-server
 
-------------------------------------------------------------------------
-
 ### Running over SSH
 
 Try connecting with:
 
     ssh -t user@host
-
-------------------------------------------------------------------------
 
 ### Database lock error
 
@@ -262,16 +247,14 @@ If you see:
 
 Another process is using the database.
 
-Stop the running application before launching badger-cli.
+Stop the running application before launching badger-gui.
 
-------------------------------------------------------------------------
 
 ### JSON formatting fails
 
 Ensure the stored value is valid JSON.\
 Switch to `text` or `hex` view to inspect raw content.
 
-------------------------------------------------------------------------
 
 ### Performance issues on large databases
 
@@ -279,7 +262,6 @@ Switch to `text` or `hex` view to inspect raw content.
 -   Avoid network-mounted volumes
 -   Ensure no other heavy I/O workloads are running
 
-------------------------------------------------------------------------
 
 ## Roadmap
 
@@ -290,13 +272,11 @@ Switch to `text` or `hex` view to inspect raw content.
 -   Compaction visibility
 -   Plugin support
 
-------------------------------------------------------------------------
 
 ## Contributing
 
 Issues, feedback, and improvements are welcome.
 
-------------------------------------------------------------------------
 
 ## License
 
