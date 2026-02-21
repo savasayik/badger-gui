@@ -1,0 +1,54 @@
+# Go build outputs
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.cover
+*.prof
+*.log
+
+# Binary outputs
+bin/
+dist/
+build/
+
+# Coverage files
+coverage.out
+coverage.html
+
+# Go modules
+vendor/
+
+# Dependency managers
+Godeps/
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.*
+*.local
+
+# Logs & temp
+tmp/
+temp/
+*.tmp
+*.bak
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# GoLand / JetBrains
+.idea/
+*.iml
+
+# Debug
+__debug_bin
+/debug
+/data
+/dist
+/.goreleaser.yaml
