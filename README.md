@@ -269,6 +269,13 @@ Switch to `text` or `hex` view to inspect raw content.
 -   Compaction visibility
 -   Plugin support
 
+## Keywords
+
+BadgerDB CLI  
+BadgerDB GUI  
+BadgerDB terminal UI  
+BadgerDB key browser  
+Golang embedded database tool
 
 ## Contributing
 
