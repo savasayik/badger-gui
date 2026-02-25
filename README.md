@@ -7,9 +7,6 @@
 A fast, minimal, keyboard-driven terminal UI for safely inspecting and
 managing BadgerDB databases.
 
-## Demo
-![demo](docs/badger-gui.svg)
-
 ## Overview
 
 **badger-gui** is a cross-platform CLI GUI built for developers who work directly with embedded BadgerDB databases.
@@ -31,6 +28,9 @@ No database server required.
 It operates directly on the embedded Badger database, acting purely as an interactive inspection and controlled mutation layer.
 
 badger-gui is built for engineers who want to stay close to their data during development, debugging, and incident analysis.
+
+## Demo
+![demo](docs/badger-gui.svg)
 
 ## Built for BadgerDB
 
