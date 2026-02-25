@@ -1,0 +1,1493 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1802.59333262" height="1026.66641" font-family="'Cascadia Code','Source Code Pro',Menlo,Consolas,'DejaVu Sans Mono',monospace,'Symbols Nerd Font'" font-size="14px">
+  <style>
+    .br { font-weight: bold }
+    .fa { fill-opacity: 0.5 }
+    .it { font-style: italic }
+    .un { text-decoration: underline }
+
+    @font-face {
+      font-family: "Symbols Nerd Font";
+      src: url("https://asciinema.org/fonts/SymbolsNerdFont-Regular-337b40fc23735cb78fbe3379fae18138.woff2?vsn=d") format("woff2");
+    }
+
+  </style>
+
+  <rect width="100%" height="100%" style="fill: #282c34" rx="4" ry="4"></rect>
+
+  <svg x="8.42333333" y="9.333331000000001" class="default-text-fill">
+    <image x="0" y="0" width="1785.74666596" height="1007.9997480000001" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABqAAAAUQCAIAAACk6gbrAAAmSElEQVR4XuzYIW4dURBFQVsyCDQM8AICArP/1RgEBgYYeAVPTz9WR32kKj4jzZCrPs8/fv56AgAAAACangU+AAAAAOgS+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAICwhwPft5eP8Oc+7u/Hy+MPAQAAAMB/IvBdCHwAAAAAbCbwXQh8AAAAAGwm8F0IfAAAAABsJvBdCHwAAAAAbCbwXQh8AAAAAGwm8F0IfAAAAABsJvBdCHwAAAAAbCbwXQh8AAAAAGwm8F0IfAAAAABsJvBdCHwAAAAAbCbwXQh8AAAAAGwm8F0IfAAAAABsJvBdCHwAAAAAbCbwXQh8AAAAAGwm8F0IfAAAAABsJvBdCHwAAAAAbCbwXQh8AAAAAGwm8F0IfAAAAABsJvBdCHwAAAAAbCbwXQh8AAAAAGwm8F0IfAAAAABsJvBdCHwAAAAAbCbwXQh8AAAAAGz2cOADAAAAAPYQ+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwsYD39v31/DvAYCvef/952sv+Ef2FwAA9pi+CwQ+ABg0PeQnAh8AAOwxfRcIfAAwaHrITwQ+AADYY/ouEPgAYND0kJ8IfAAAsMf0XSDwAcCg6SE/EfgAAGCP6btA4AOAQdNDfiLwAQDAHtN3gcAHAIOmh/xE4AMAgD2m7wKBDwAGTQ/5icAHAAB7TN8FAh8ADJoe8hOBDwAA9pi+CwQ+ABg0PeQnAh8AAOwxfRcIfAAwaHrITwQ+AADYY/ouEPgAYND0kJ8IfAAAsMf0XSDwAcCg6SE/EfgAAGCP6btA4AOAQdNDfiLwAQDAHtN3gcAHAIOmh/xE4AMAgD2m7wKBDwAGTQ/5icAHAAB7TN8FAh8ADJoe8hOBDwAA9pi+CwQ+ABg0PeQnAh8AAOwxfRcIfAAwaHrITwQ+AADYY/ouEPgAYND0kJ8IfAAAsMf0XSDwAcCg6SE/EfgAAGCP6btA4AOAQdNDfiLwAQDAHtN3gcAHAIOmh/xE4AMAgD2m7wKBDwAGTQ/5icAHAAB7TN8F44EPAAAAAJgj8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABAAAAQJjABwAAAABhAh8AAAAAhAl8AAAAABAm8AEAAABAmMAHAAAAAGECHwAAAACECXwAAAAAECbwAQAAAECYwAcAAAAAYQIfAAAAAIQJfAAAAAAQJvABn+3YoQ2AQAAEwZC8oBQEkv7rQryghhckv8lMBXd2AQAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACFsOfOeY4bsAAAAAsLd3jqWBAh8AAAAAbETgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMJ+D3wAAAAAwD6O6372WQMAAAAALBH4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgDCBDwAAAADCBD4AAAAACBP4AAAAACBM4AMAAACAMIEPAAAAAMIEPgAAAAAIE/gAAAAAIEzgAwAAAIAwgQ8AAAAAwgQ+AAAAAAgT+AAAAAAgTOADAAAAgLAPHhfVvmz28SYAAAAASUVORK5CYII=" preserveAspectRatio="none" style="image-rendering: pixelated; image-rendering: crisp-edges;"></image>
+
+    <g style="shape-rendering: optimizeSpeed">
+
+    </g>
+
+    <text style="fill: #ffffff">
+      <tspan y="18.666662000000002">
+        <tspan dy="1em" x="16.84666666" class="br" style="fill: #ffffaf">
+          badger-tui
+        </tspan><tspan x="117.92666662" style="fill: #949494">
+          DB: ./data/badger
+        </tspan><tspan x="1566.73999938" style="fill: #949494">
+          Keys: 500+
+        </tspan><tspan x="1667.81999934" style="fill: #949494">
+          Format: json
+        </tspan>
+      </tspan><tspan y="37.333324000000005">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          ╭
+        </tspan><tspan x="25.269999990000002" style="fill: #585858">
+          ─
+        </tspan><tspan x="33.69333332" style="fill: #585858">
+          ─
+        </tspan><tspan x="42.11666665" style="fill: #585858">
+          ─
+        </tspan><tspan x="50.539999980000005" style="fill: #585858">
+          ─
+        </tspan><tspan x="58.96333331" style="fill: #585858">
+          ─
+        </tspan><tspan x="67.38666664" style="fill: #585858">
+          ─
+        </tspan><tspan x="75.80999997" style="fill: #585858">
+          ─
+        </tspan><tspan x="84.2333333" style="fill: #585858">
+          ─
+        </tspan><tspan x="92.65666663" style="fill: #585858">
+          ─
+        </tspan><tspan x="101.07999996000001" style="fill: #585858">
+          ─
+        </tspan><tspan x="109.50333329" style="fill: #585858">
+          ─
+        </tspan><tspan x="117.92666662" style="fill: #585858">
+          ─
+        </tspan><tspan x="126.34999995" style="fill: #585858">
+          ─
+        </tspan><tspan x="134.77333328" style="fill: #585858">
+          ─
+        </tspan><tspan x="143.19666661" style="fill: #585858">
+          ─
+        </tspan><tspan x="151.61999994" style="fill: #585858">
+          ─
+        </tspan><tspan x="160.04333327" style="fill: #585858">
+          ─
+        </tspan><tspan x="168.4666666" style="fill: #585858">
+          ─
+        </tspan><tspan x="176.88999993000002" style="fill: #585858">
+          ─
+        </tspan><tspan x="185.31333326" style="fill: #585858">
+          ─
+        </tspan><tspan x="193.73666659" style="fill: #585858">
+          ─
+        </tspan><tspan x="202.15999992000002" style="fill: #585858">
+          ─
+        </tspan><tspan x="210.58333325" style="fill: #585858">
+          ─
+        </tspan><tspan x="219.00666658" style="fill: #585858">
+          ─
+        </tspan><tspan x="227.42999991" style="fill: #585858">
+          ─
+        </tspan><tspan x="235.85333324" style="fill: #585858">
+          ─
+        </tspan><tspan x="244.27666657" style="fill: #585858">
+          ─
+        </tspan><tspan x="252.6999999" style="fill: #585858">
+          ─
+        </tspan><tspan x="261.12333323" style="fill: #585858">
+          ─
+        </tspan><tspan x="269.54666656" style="fill: #585858">
+          ─
+        </tspan><tspan x="277.96999989" style="fill: #585858">
+          ─
+        </tspan><tspan x="286.39333322" style="fill: #585858">
+          ─
+        </tspan><tspan x="294.81666655" style="fill: #585858">
+          ─
+        </tspan><tspan x="303.23999988" style="fill: #585858">
+          ─
+        </tspan><tspan x="311.66333321" style="fill: #585858">
+          ─
+        </tspan><tspan x="320.08666654" style="fill: #585858">
+          ─
+        </tspan><tspan x="328.50999987" style="fill: #585858">
+          ─
+        </tspan><tspan x="336.9333332" style="fill: #585858">
+          ─
+        </tspan><tspan x="345.35666653" style="fill: #585858">
+          ─
+        </tspan><tspan x="353.77999986000003" style="fill: #585858">
+          ─
+        </tspan><tspan x="362.20333319" style="fill: #585858">
+          ─
+        </tspan><tspan x="370.62666652" style="fill: #585858">
+          ─
+        </tspan><tspan x="379.04999985" style="fill: #585858">
+          ─
+        </tspan><tspan x="387.47333318" style="fill: #585858">
+          ─
+        </tspan><tspan x="395.89666651" style="fill: #585858">
+          ─
+        </tspan><tspan x="404.31999984000004" style="fill: #585858">
+          ─
+        </tspan><tspan x="412.74333317" style="fill: #585858">
+          ─
+        </tspan><tspan x="421.1666665" style="fill: #585858">
+          ─
+        </tspan><tspan x="429.58999983" style="fill: #585858">
+          ─
+        </tspan><tspan x="438.01333316" style="fill: #585858">
+          ─
+        </tspan><tspan x="446.43666649" style="fill: #585858">
+          ─
+        </tspan><tspan x="454.85999982" style="fill: #585858">
+          ─
+        </tspan><tspan x="463.28333315000003" style="fill: #585858">
+          ─
+        </tspan><tspan x="471.70666648" style="fill: #585858">
+          ─
+        </tspan><tspan x="480.12999981" style="fill: #585858">
+          ─
+        </tspan><tspan x="488.55333314" style="fill: #585858">
+          ─
+        </tspan><tspan x="496.97666647" style="fill: #585858">
+          ─
+        </tspan><tspan x="505.3999998" style="fill: #585858">
+          ─
+        </tspan><tspan x="513.82333313" style="fill: #585858">
+          ─
+        </tspan><tspan x="522.24666646" style="fill: #585858">
+          ─
+        </tspan><tspan x="530.66999979" style="fill: #585858">
+          ─
+        </tspan><tspan x="539.09333312" style="fill: #585858">
+          ─
+        </tspan><tspan x="547.51666645" style="fill: #585858">
+          ─
+        </tspan><tspan x="555.93999978" style="fill: #585858">
+          ─
+        </tspan><tspan x="564.36333311" style="fill: #585858">
+          ─
+        </tspan><tspan x="572.78666644" style="fill: #585858">
+          ─
+        </tspan><tspan x="581.20999977" style="fill: #585858">
+          ─
+        </tspan><tspan x="589.6333331" style="fill: #585858">
+          ─
+        </tspan><tspan x="598.0566664300001" style="fill: #585858">
+          ─
+        </tspan><tspan x="606.47999976" style="fill: #585858">
+          ─
+        </tspan><tspan x="614.90333309" style="fill: #585858">
+          ─
+        </tspan><tspan x="623.32666642" style="fill: #585858">
+          ─
+        </tspan><tspan x="631.74999975" style="fill: #585858">
+          ─
+        </tspan><tspan x="640.17333308" style="fill: #585858">
+          ─
+        </tspan><tspan x="648.59666641" style="fill: #585858">
+          ─
+        </tspan><tspan x="657.01999974" style="fill: #585858">
+          ─
+        </tspan><tspan x="665.44333307" style="fill: #585858">
+          ─
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          ╮
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          ╭
+        </tspan><tspan x="699.13666639" style="fill: #585858">
+          ─
+        </tspan><tspan x="707.5599997200001" style="fill: #585858">
+          ─
+        </tspan><tspan x="715.98333305" style="fill: #585858">
+          ─
+        </tspan><tspan x="724.40666638" style="fill: #585858">
+          ─
+        </tspan><tspan x="732.82999971" style="fill: #585858">
+          ─
+        </tspan><tspan x="741.25333304" style="fill: #585858">
+          ─
+        </tspan><tspan x="749.67666637" style="fill: #585858">
+          ─
+        </tspan><tspan x="758.0999997" style="fill: #585858">
+          ─
+        </tspan><tspan x="766.52333303" style="fill: #585858">
+          ─
+        </tspan><tspan x="774.94666636" style="fill: #585858">
+          ─
+        </tspan><tspan x="783.36999969" style="fill: #585858">
+          ─
+        </tspan><tspan x="791.79333302" style="fill: #585858">
+          ─
+        </tspan><tspan x="800.21666635" style="fill: #585858">
+          ─
+        </tspan><tspan x="808.6399996800001" style="fill: #585858">
+          ─
+        </tspan><tspan x="817.0633330100001" style="fill: #585858">
+          ─
+        </tspan><tspan x="825.48666634" style="fill: #585858">
+          ─
+        </tspan><tspan x="833.90999967" style="fill: #585858">
+          ─
+        </tspan><tspan x="842.333333" style="fill: #585858">
+          ─
+        </tspan><tspan x="850.75666633" style="fill: #585858">
+          ─
+        </tspan><tspan x="859.17999966" style="fill: #585858">
+          ─
+        </tspan><tspan x="867.60333299" style="fill: #585858">
+          ─
+        </tspan><tspan x="876.02666632" style="fill: #585858">
+          ─
+        </tspan><tspan x="884.44999965" style="fill: #585858">
+          ─
+        </tspan><tspan x="892.87333298" style="fill: #585858">
+          ─
+        </tspan><tspan x="901.29666631" style="fill: #585858">
+          ─
+        </tspan><tspan x="909.71999964" style="fill: #585858">
+          ─
+        </tspan><tspan x="918.1433329700001" style="fill: #585858">
+          ─
+        </tspan><tspan x="926.5666663000001" style="fill: #585858">
+          ─
+        </tspan><tspan x="934.98999963" style="fill: #585858">
+          ─
+        </tspan><tspan x="943.41333296" style="fill: #585858">
+          ─
+        </tspan><tspan x="951.83666629" style="fill: #585858">
+          ─
+        </tspan><tspan x="960.25999962" style="fill: #585858">
+          ─
+        </tspan><tspan x="968.68333295" style="fill: #585858">
+          ─
+        </tspan><tspan x="977.10666628" style="fill: #585858">
+          ─
+        </tspan><tspan x="985.52999961" style="fill: #585858">
+          ─
+        </tspan><tspan x="993.95333294" style="fill: #585858">
+          ─
+        </tspan><tspan x="1002.37666627" style="fill: #585858">
+          ─
+        </tspan><tspan x="1010.7999996" style="fill: #585858">
+          ─
+        </tspan><tspan x="1019.22333293" style="fill: #585858">
+          ─
+        </tspan><tspan x="1027.64666626" style="fill: #585858">
+          ─
+        </tspan><tspan x="1036.06999959" style="fill: #585858">
+          ─
+        </tspan><tspan x="1044.49333292" style="fill: #585858">
+          ─
+        </tspan><tspan x="1052.91666625" style="fill: #585858">
+          ─
+        </tspan><tspan x="1061.33999958" style="fill: #585858">
+          ─
+        </tspan><tspan x="1069.76333291" style="fill: #585858">
+          ─
+        </tspan><tspan x="1078.18666624" style="fill: #585858">
+          ─
+        </tspan><tspan x="1086.6099995700001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1095.0333329" style="fill: #585858">
+          ─
+        </tspan><tspan x="1103.45666623" style="fill: #585858">
+          ─
+        </tspan><tspan x="1111.87999956" style="fill: #585858">
+          ─
+        </tspan><tspan x="1120.30333289" style="fill: #585858">
+          ─
+        </tspan><tspan x="1128.72666622" style="fill: #585858">
+          ─
+        </tspan><tspan x="1137.14999955" style="fill: #585858">
+          ─
+        </tspan><tspan x="1145.57333288" style="fill: #585858">
+          ─
+        </tspan><tspan x="1153.99666621" style="fill: #585858">
+          ─
+        </tspan><tspan x="1162.41999954" style="fill: #585858">
+          ─
+        </tspan><tspan x="1170.84333287" style="fill: #585858">
+          ─
+        </tspan><tspan x="1179.2666662" style="fill: #585858">
+          ─
+        </tspan><tspan x="1187.68999953" style="fill: #585858">
+          ─
+        </tspan><tspan x="1196.1133328600001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1204.53666619" style="fill: #585858">
+          ─
+        </tspan><tspan x="1212.95999952" style="fill: #585858">
+          ─
+        </tspan><tspan x="1221.38333285" style="fill: #585858">
+          ─
+        </tspan><tspan x="1229.80666618" style="fill: #585858">
+          ─
+        </tspan><tspan x="1238.22999951" style="fill: #585858">
+          ─
+        </tspan><tspan x="1246.65333284" style="fill: #585858">
+          ─
+        </tspan><tspan x="1255.07666617" style="fill: #585858">
+          ─
+        </tspan><tspan x="1263.4999995" style="fill: #585858">
+          ─
+        </tspan><tspan x="1271.92333283" style="fill: #585858">
+          ─
+        </tspan><tspan x="1280.34666616" style="fill: #585858">
+          ─
+        </tspan><tspan x="1288.76999949" style="fill: #585858">
+          ─
+        </tspan><tspan x="1297.19333282" style="fill: #585858">
+          ─
+        </tspan><tspan x="1305.6166661500001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1314.03999948" style="fill: #585858">
+          ─
+        </tspan><tspan x="1322.46333281" style="fill: #585858">
+          ─
+        </tspan><tspan x="1330.88666614" style="fill: #585858">
+          ─
+        </tspan><tspan x="1339.30999947" style="fill: #585858">
+          ─
+        </tspan><tspan x="1347.7333328" style="fill: #585858">
+          ─
+        </tspan><tspan x="1356.15666613" style="fill: #585858">
+          ─
+        </tspan><tspan x="1364.57999946" style="fill: #585858">
+          ─
+        </tspan><tspan x="1373.00333279" style="fill: #585858">
+          ─
+        </tspan><tspan x="1381.42666612" style="fill: #585858">
+          ─
+        </tspan><tspan x="1389.84999945" style="fill: #585858">
+          ─
+        </tspan><tspan x="1398.27333278" style="fill: #585858">
+          ─
+        </tspan><tspan x="1406.69666611" style="fill: #585858">
+          ─
+        </tspan><tspan x="1415.1199994400001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1423.54333277" style="fill: #585858">
+          ─
+        </tspan><tspan x="1431.9666661" style="fill: #585858">
+          ─
+        </tspan><tspan x="1440.38999943" style="fill: #585858">
+          ─
+        </tspan><tspan x="1448.81333276" style="fill: #585858">
+          ─
+        </tspan><tspan x="1457.23666609" style="fill: #585858">
+          ─
+        </tspan><tspan x="1465.65999942" style="fill: #585858">
+          ─
+        </tspan><tspan x="1474.08333275" style="fill: #585858">
+          ─
+        </tspan><tspan x="1482.50666608" style="fill: #585858">
+          ─
+        </tspan><tspan x="1490.92999941" style="fill: #585858">
+          ─
+        </tspan><tspan x="1499.35333274" style="fill: #585858">
+          ─
+        </tspan><tspan x="1507.77666607" style="fill: #585858">
+          ─
+        </tspan><tspan x="1516.1999994" style="fill: #585858">
+          ─
+        </tspan><tspan x="1524.6233327300001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1533.04666606" style="fill: #585858">
+          ─
+        </tspan><tspan x="1541.46999939" style="fill: #585858">
+          ─
+        </tspan><tspan x="1549.89333272" style="fill: #585858">
+          ─
+        </tspan><tspan x="1558.31666605" style="fill: #585858">
+          ─
+        </tspan><tspan x="1566.73999938" style="fill: #585858">
+          ─
+        </tspan><tspan x="1575.16333271" style="fill: #585858">
+          ─
+        </tspan><tspan x="1583.58666604" style="fill: #585858">
+          ─
+        </tspan><tspan x="1592.00999937" style="fill: #585858">
+          ─
+        </tspan><tspan x="1600.4333327" style="fill: #585858">
+          ─
+        </tspan><tspan x="1608.85666603" style="fill: #585858">
+          ─
+        </tspan><tspan x="1617.2799993600001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1625.70333269" style="fill: #585858">
+          ─
+        </tspan><tspan x="1634.1266660200001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1642.54999935" style="fill: #585858">
+          ─
+        </tspan><tspan x="1650.97333268" style="fill: #585858">
+          ─
+        </tspan><tspan x="1659.39666601" style="fill: #585858">
+          ─
+        </tspan><tspan x="1667.81999934" style="fill: #585858">
+          ─
+        </tspan><tspan x="1676.24333267" style="fill: #585858">
+          ─
+        </tspan><tspan x="1684.666666" style="fill: #585858">
+          ─
+        </tspan><tspan x="1693.08999933" style="fill: #585858">
+          ─
+        </tspan><tspan x="1701.51333266" style="fill: #585858">
+          ─
+        </tspan><tspan x="1709.93666599" style="fill: #585858">
+          ─
+        </tspan><tspan x="1718.35999932" style="fill: #585858">
+          ─
+        </tspan><tspan x="1726.7833326500001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1735.20666598" style="fill: #585858">
+          ─
+        </tspan><tspan x="1743.6299993100001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1752.05333264" style="fill: #585858">
+          ─
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          ╮
+        </tspan>
+      </tspan><tspan y="55.99998600000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="33.69333332" class="br" style="fill: #d0d0d0">
+          Keys 500+
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="707.5599997200001" class="br" style="fill: #d0d0d0">
+          Edit: gps:20260211T202833.931Z:d22060d7-a620-48fa-89b6-d65fc744993d
+        </tspan><tspan x="1288.76999949" class="br" style="fill: #d0d0d0">
+          (Ctrl+S save · Esc cancel)
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="74.66664800000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="749.67666637" style="fill: #6c6c6c">
+          1
+        </tspan><tspan x="758.0999997" style="fill: #808080">
+          {
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="93.33331000000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          cam:42392afa-9290-4de0-a03c-284cf49584c6
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="749.67666637" style="fill: #6c6c6c">
+          2
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;altitude_m&quot;
+        </tspan><tspan x="876.02666632" style="fill: #808080">
+          :
+        </tspan><tspan x="892.87333298" style="fill: #ffaf00">
+          35.97724248299391
+        </tspan><tspan x="1036.06999959" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="111.99997200000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          cnf:default
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="749.67666637" style="fill: #6c6c6c">
+          3
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;course_deg&quot;
+        </tspan><tspan x="876.02666632" style="fill: #808080">
+          :
+        </tspan><tspan x="892.87333298" style="fill: #ffaf00">
+          187.
+        </tspan><tspan x="926.5666663000001" class="un" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="130.66663400000002">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          cnf:life
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="749.67666637" style="fill: #6c6c6c">
+          4
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;created_at&quot;
+        </tspan><tspan x="876.02666632" style="fill: #808080">
+          :
+        </tspan><tspan x="892.87333298" style="fill: #ffd700">
+          &quot;2026-02-11T23:28:33.931356+03:00&quot;
+        </tspan><tspan x="1179.2666662" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="149.33329600000002">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202831.931Z:46b3c9a1-30eb-411f-8690-6df6979c2cf4
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="749.67666637" style="fill: #6c6c6c">
+          5
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;fix_quality&quot;
+        </tspan><tspan x="884.44999965" style="fill: #808080">
+          :
+        </tspan><tspan x="901.29666631" style="fill: #ffaf00">
+          1
+        </tspan><tspan x="909.71999964" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="167.99995800000002">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202832.931Z:87210df4-decd-45f1-ad2b-afd53e9ca211
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="749.67666637" style="fill: #6c6c6c">
+          6
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;hdop&quot;
+        </tspan><tspan x="825.48666634" style="fill: #808080">
+          :
+        </tspan><tspan x="842.333333" style="fill: #ffaf00">
+          0.9
+        </tspan><tspan x="867.60333299" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="186.66662000000002">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="33.69333332">
+          │
+        </tspan><tspan x="50.539999980000005" class="br" style="fill: #d75fd7">
+          gps:20260211T202833.931Z:d22060d7-a620-48fa-89b6-d65fc744993d
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="749.67666637" style="fill: #6c6c6c">
+          7
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;id&quot;
+        </tspan><tspan x="808.6399996800001" style="fill: #808080">
+          :
+        </tspan><tspan x="825.48666634" style="fill: #ffd700">
+          &quot;d22060d7-a620-48fa-89b6-d65fc744993d&quot;
+        </tspan><tspan x="1145.57333288" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="205.33328200000003">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202834.931Z:f371bceb-8bdb-495c-821f-371bde8e1ce0
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="749.67666637" style="fill: #6c6c6c">
+          8
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;lat&quot;
+        </tspan><tspan x="817.0633330100001" style="fill: #808080">
+          :
+        </tspan><tspan x="833.90999967" style="fill: #ffaf00">
+          41.01525597338337
+        </tspan><tspan x="977.10666628" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="223.99994400000003">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202835.931Z:8c2be28b-8d99-4bfd-9472-0f68e7b050f3
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="749.67666637" style="fill: #6c6c6c">
+          9
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;lon&quot;
+        </tspan><tspan x="817.0633330100001" style="fill: #808080">
+          :
+        </tspan><tspan x="833.90999967" style="fill: #ffaf00">
+          28.979514336856933
+        </tspan><tspan x="985.52999961" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="242.66660600000003">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202836.931Z:7c3889b3-187e-45ee-b3f6-03a673aa46f7
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="741.25333304" style="fill: #6c6c6c">
+          10
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;raw&quot;
+        </tspan><tspan x="817.0633330100001" style="fill: #808080">
+          :
+        </tspan><tspan x="833.90999967" style="fill: #ffd700">
+          &quot;sim:generator&quot;
+        </tspan><tspan x="960.25999962" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="261.33326800000003">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202837.931Z:f5843041-c380-4a67-9633-846176039355
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="741.25333304" style="fill: #6c6c6c">
+          11
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;satellites&quot;
+        </tspan><tspan x="876.02666632" style="fill: #808080">
+          :
+        </tspan><tspan x="892.87333298" style="fill: #ffaf00">
+          12
+        </tspan><tspan x="909.71999964" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="279.99993">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202838.931Z:58ad1def-a43a-4b60-9cf2-ce52381a8527
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="741.25333304" style="fill: #6c6c6c">
+          12
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;speed_kmh&quot;
+        </tspan><tspan x="867.60333299" style="fill: #808080">
+          :
+        </tspan><tspan x="884.44999965" style="fill: #ffaf00">
+          59.14571463446309
+        </tspan><tspan x="1027.64666626" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="298.66659200000004">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202839.931Z:54de8dac-35d2-4328-83cf-eeb45d319cbe
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="741.25333304" style="fill: #6c6c6c">
+          13
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;ts&quot;
+        </tspan><tspan x="808.6399996800001" style="fill: #808080">
+          :
+        </tspan><tspan x="825.48666634" style="fill: #ffd700">
+          &quot;2026-02-11T23:28:33.931355+03:00&quot;
+        </tspan><tspan x="1111.87999956" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="317.333254">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202840.931Z:f5cb2e59-6f16-4d83-b226-1ceb48a164be
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="741.25333304" style="fill: #6c6c6c">
+          14
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;updated_at&quot;
+        </tspan><tspan x="876.02666632" style="fill: #808080">
+          :
+        </tspan><tspan x="892.87333298" style="fill: #ffd700">
+          &quot;2026-02-11T23:28:33.931356+03:00&quot;
+        </tspan><tspan x="1179.2666662" style="fill: #808080">
+          ,
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="335.99991600000004">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202841.931Z:f5bf6ad4-ddfa-4475-b6f6-9844e6ec48d1
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="741.25333304" style="fill: #6c6c6c">
+          15
+        </tspan><tspan x="774.94666636" class="br" style="fill: #5fd7ff">
+          &quot;valid&quot;
+        </tspan><tspan x="833.90999967" style="fill: #808080">
+          :
+        </tspan><tspan x="850.75666633" class="br" style="fill: #87afff">
+          true
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="354.666578">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202842.931Z:98e07d14-cf83-49d7-9ca2-39be4c5f8552
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          │
+        </tspan><tspan x="741.25333304" style="fill: #6c6c6c">
+          16
+        </tspan><tspan x="758.0999997" style="fill: #808080">
+          }
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="373.33324000000005">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202843.931Z:b6110a29-6419-49ca-a69c-f9049f854dbc
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan><tspan x="690.71333306" style="fill: #585858">
+          ╰
+        </tspan><tspan x="699.13666639" style="fill: #585858">
+          ─
+        </tspan><tspan x="707.5599997200001" style="fill: #585858">
+          ─
+        </tspan><tspan x="715.98333305" style="fill: #585858">
+          ─
+        </tspan><tspan x="724.40666638" style="fill: #585858">
+          ─
+        </tspan><tspan x="732.82999971" style="fill: #585858">
+          ─
+        </tspan><tspan x="741.25333304" style="fill: #585858">
+          ─
+        </tspan><tspan x="749.67666637" style="fill: #585858">
+          ─
+        </tspan><tspan x="758.0999997" style="fill: #585858">
+          ─
+        </tspan><tspan x="766.52333303" style="fill: #585858">
+          ─
+        </tspan><tspan x="774.94666636" style="fill: #585858">
+          ─
+        </tspan><tspan x="783.36999969" style="fill: #585858">
+          ─
+        </tspan><tspan x="791.79333302" style="fill: #585858">
+          ─
+        </tspan><tspan x="800.21666635" style="fill: #585858">
+          ─
+        </tspan><tspan x="808.6399996800001" style="fill: #585858">
+          ─
+        </tspan><tspan x="817.0633330100001" style="fill: #585858">
+          ─
+        </tspan><tspan x="825.48666634" style="fill: #585858">
+          ─
+        </tspan><tspan x="833.90999967" style="fill: #585858">
+          ─
+        </tspan><tspan x="842.333333" style="fill: #585858">
+          ─
+        </tspan><tspan x="850.75666633" style="fill: #585858">
+          ─
+        </tspan><tspan x="859.17999966" style="fill: #585858">
+          ─
+        </tspan><tspan x="867.60333299" style="fill: #585858">
+          ─
+        </tspan><tspan x="876.02666632" style="fill: #585858">
+          ─
+        </tspan><tspan x="884.44999965" style="fill: #585858">
+          ─
+        </tspan><tspan x="892.87333298" style="fill: #585858">
+          ─
+        </tspan><tspan x="901.29666631" style="fill: #585858">
+          ─
+        </tspan><tspan x="909.71999964" style="fill: #585858">
+          ─
+        </tspan><tspan x="918.1433329700001" style="fill: #585858">
+          ─
+        </tspan><tspan x="926.5666663000001" style="fill: #585858">
+          ─
+        </tspan><tspan x="934.98999963" style="fill: #585858">
+          ─
+        </tspan><tspan x="943.41333296" style="fill: #585858">
+          ─
+        </tspan><tspan x="951.83666629" style="fill: #585858">
+          ─
+        </tspan><tspan x="960.25999962" style="fill: #585858">
+          ─
+        </tspan><tspan x="968.68333295" style="fill: #585858">
+          ─
+        </tspan><tspan x="977.10666628" style="fill: #585858">
+          ─
+        </tspan><tspan x="985.52999961" style="fill: #585858">
+          ─
+        </tspan><tspan x="993.95333294" style="fill: #585858">
+          ─
+        </tspan><tspan x="1002.37666627" style="fill: #585858">
+          ─
+        </tspan><tspan x="1010.7999996" style="fill: #585858">
+          ─
+        </tspan><tspan x="1019.22333293" style="fill: #585858">
+          ─
+        </tspan><tspan x="1027.64666626" style="fill: #585858">
+          ─
+        </tspan><tspan x="1036.06999959" style="fill: #585858">
+          ─
+        </tspan><tspan x="1044.49333292" style="fill: #585858">
+          ─
+        </tspan><tspan x="1052.91666625" style="fill: #585858">
+          ─
+        </tspan><tspan x="1061.33999958" style="fill: #585858">
+          ─
+        </tspan><tspan x="1069.76333291" style="fill: #585858">
+          ─
+        </tspan><tspan x="1078.18666624" style="fill: #585858">
+          ─
+        </tspan><tspan x="1086.6099995700001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1095.0333329" style="fill: #585858">
+          ─
+        </tspan><tspan x="1103.45666623" style="fill: #585858">
+          ─
+        </tspan><tspan x="1111.87999956" style="fill: #585858">
+          ─
+        </tspan><tspan x="1120.30333289" style="fill: #585858">
+          ─
+        </tspan><tspan x="1128.72666622" style="fill: #585858">
+          ─
+        </tspan><tspan x="1137.14999955" style="fill: #585858">
+          ─
+        </tspan><tspan x="1145.57333288" style="fill: #585858">
+          ─
+        </tspan><tspan x="1153.99666621" style="fill: #585858">
+          ─
+        </tspan><tspan x="1162.41999954" style="fill: #585858">
+          ─
+        </tspan><tspan x="1170.84333287" style="fill: #585858">
+          ─
+        </tspan><tspan x="1179.2666662" style="fill: #585858">
+          ─
+        </tspan><tspan x="1187.68999953" style="fill: #585858">
+          ─
+        </tspan><tspan x="1196.1133328600001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1204.53666619" style="fill: #585858">
+          ─
+        </tspan><tspan x="1212.95999952" style="fill: #585858">
+          ─
+        </tspan><tspan x="1221.38333285" style="fill: #585858">
+          ─
+        </tspan><tspan x="1229.80666618" style="fill: #585858">
+          ─
+        </tspan><tspan x="1238.22999951" style="fill: #585858">
+          ─
+        </tspan><tspan x="1246.65333284" style="fill: #585858">
+          ─
+        </tspan><tspan x="1255.07666617" style="fill: #585858">
+          ─
+        </tspan><tspan x="1263.4999995" style="fill: #585858">
+          ─
+        </tspan><tspan x="1271.92333283" style="fill: #585858">
+          ─
+        </tspan><tspan x="1280.34666616" style="fill: #585858">
+          ─
+        </tspan><tspan x="1288.76999949" style="fill: #585858">
+          ─
+        </tspan><tspan x="1297.19333282" style="fill: #585858">
+          ─
+        </tspan><tspan x="1305.6166661500001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1314.03999948" style="fill: #585858">
+          ─
+        </tspan><tspan x="1322.46333281" style="fill: #585858">
+          ─
+        </tspan><tspan x="1330.88666614" style="fill: #585858">
+          ─
+        </tspan><tspan x="1339.30999947" style="fill: #585858">
+          ─
+        </tspan><tspan x="1347.7333328" style="fill: #585858">
+          ─
+        </tspan><tspan x="1356.15666613" style="fill: #585858">
+          ─
+        </tspan><tspan x="1364.57999946" style="fill: #585858">
+          ─
+        </tspan><tspan x="1373.00333279" style="fill: #585858">
+          ─
+        </tspan><tspan x="1381.42666612" style="fill: #585858">
+          ─
+        </tspan><tspan x="1389.84999945" style="fill: #585858">
+          ─
+        </tspan><tspan x="1398.27333278" style="fill: #585858">
+          ─
+        </tspan><tspan x="1406.69666611" style="fill: #585858">
+          ─
+        </tspan><tspan x="1415.1199994400001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1423.54333277" style="fill: #585858">
+          ─
+        </tspan><tspan x="1431.9666661" style="fill: #585858">
+          ─
+        </tspan><tspan x="1440.38999943" style="fill: #585858">
+          ─
+        </tspan><tspan x="1448.81333276" style="fill: #585858">
+          ─
+        </tspan><tspan x="1457.23666609" style="fill: #585858">
+          ─
+        </tspan><tspan x="1465.65999942" style="fill: #585858">
+          ─
+        </tspan><tspan x="1474.08333275" style="fill: #585858">
+          ─
+        </tspan><tspan x="1482.50666608" style="fill: #585858">
+          ─
+        </tspan><tspan x="1490.92999941" style="fill: #585858">
+          ─
+        </tspan><tspan x="1499.35333274" style="fill: #585858">
+          ─
+        </tspan><tspan x="1507.77666607" style="fill: #585858">
+          ─
+        </tspan><tspan x="1516.1999994" style="fill: #585858">
+          ─
+        </tspan><tspan x="1524.6233327300001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1533.04666606" style="fill: #585858">
+          ─
+        </tspan><tspan x="1541.46999939" style="fill: #585858">
+          ─
+        </tspan><tspan x="1549.89333272" style="fill: #585858">
+          ─
+        </tspan><tspan x="1558.31666605" style="fill: #585858">
+          ─
+        </tspan><tspan x="1566.73999938" style="fill: #585858">
+          ─
+        </tspan><tspan x="1575.16333271" style="fill: #585858">
+          ─
+        </tspan><tspan x="1583.58666604" style="fill: #585858">
+          ─
+        </tspan><tspan x="1592.00999937" style="fill: #585858">
+          ─
+        </tspan><tspan x="1600.4333327" style="fill: #585858">
+          ─
+        </tspan><tspan x="1608.85666603" style="fill: #585858">
+          ─
+        </tspan><tspan x="1617.2799993600001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1625.70333269" style="fill: #585858">
+          ─
+        </tspan><tspan x="1634.1266660200001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1642.54999935" style="fill: #585858">
+          ─
+        </tspan><tspan x="1650.97333268" style="fill: #585858">
+          ─
+        </tspan><tspan x="1659.39666601" style="fill: #585858">
+          ─
+        </tspan><tspan x="1667.81999934" style="fill: #585858">
+          ─
+        </tspan><tspan x="1676.24333267" style="fill: #585858">
+          ─
+        </tspan><tspan x="1684.666666" style="fill: #585858">
+          ─
+        </tspan><tspan x="1693.08999933" style="fill: #585858">
+          ─
+        </tspan><tspan x="1701.51333266" style="fill: #585858">
+          ─
+        </tspan><tspan x="1709.93666599" style="fill: #585858">
+          ─
+        </tspan><tspan x="1718.35999932" style="fill: #585858">
+          ─
+        </tspan><tspan x="1726.7833326500001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1735.20666598" style="fill: #585858">
+          ─
+        </tspan><tspan x="1743.6299993100001" style="fill: #585858">
+          ─
+        </tspan><tspan x="1752.05333264" style="fill: #585858">
+          ─
+        </tspan><tspan x="1760.47666597" style="fill: #585858">
+          ╯
+        </tspan>
+      </tspan><tspan y="391.999902">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202844.931Z:1f87d145-df79-4424-85b1-181f4a076ed2
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="410.66656400000005">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202845.931Z:6cb6e5d9-efd9-4b0b-9c0a-3e503c4c14e3
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="429.333226">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202846.931Z:2ca9f383-eb2f-4a93-a0c5-cae55e10e975
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="447.99988800000006">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202847.931Z:6b23c056-3c40-4f75-b8aa-832ee0f5a50c
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="466.66655000000003">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202848.931Z:874f82d2-4890-4297-9e89-36b36dc0f5cc
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="485.33321200000006">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202849.931Z:9ffa8d6b-a287-48ab-8024-7bf65e6354d1
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="503.99987400000003">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202850.931Z:85676c96-ae70-432a-bd69-12f70bf7d3e8
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="522.6665360000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202851.931Z:c2f690e7-ba33-4db5-8adf-9871c8adece6
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="541.333198">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202852.931Z:736dbc4d-1e1d-48e8-a0a9-b2ed4a9ec40c
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="559.99986">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202853.931Z:ffb809a9-5885-4c36-b442-13280eefaf93
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="578.6665220000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202854.931Z:8060b5d7-7d3a-483a-8003-2d4d6d350e9f
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="597.3331840000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202855.931Z:dff48ce3-b4ac-4d41-aa40-7891e417b252
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="615.999846">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202856.931Z:5b0c96dc-d87c-4ef5-8e34-a2856fb97da7
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="634.666508">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202857.933Z:e225435f-1ba3-4504-956a-18722a9cea8b
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="653.33317">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202858.931Z:2019bcef-5cbd-4190-a115-d3245f09754b
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="671.9998320000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202859.931Z:3a0257d2-0d8c-477e-bd7b-c51c254cb72d
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="690.6664940000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202900.931Z:287d2262-aa37-4a04-98b2-38c6aa6d3a31
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="709.333156">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202901.931Z:cbf7c3f7-8325-4e3b-97cd-3d09afcc86e3
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="727.999818">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202902.931Z:be97f186-642b-490a-ade3-505f8cebd13c
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="746.6664800000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202903.931Z:23abfb41-fd97-4991-82a6-2060f3709159
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="765.3331420000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202904.931Z:5519e515-9861-4820-ba46-3d9806d6054d
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="783.999804">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202905.931Z:66045908-98cf-473d-9fe5-f6d3a6e5ddc9
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="802.666466">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202906.931Z:78dfe641-eb08-42e2-a1b4-e27573171de0
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="821.3331280000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202907.931Z:f4efa814-01f3-4520-98c3-48abd50bcaf5
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="839.9997900000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202908.931Z:7230ce45-7506-4a2c-af64-f6d200bdcea9
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="858.666452">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202909.931Z:84761ab4-920a-4864-bdc2-8e05bbcea503
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="877.333114">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202910.932Z:8c638664-55e0-4728-ba30-5af41a573083
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="895.9997760000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202911.931Z:09c35ecc-3567-469c-8c50-f1bda77a58cc
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="914.6664380000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202912.931Z:62bc3591-4cd8-4db5-af38-4f4e72f7d72c
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="933.3331000000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          │
+        </tspan><tspan x="50.539999980000005" style="fill: #bcbcbc">
+          gps:20260211T202913.931Z:fe0be1c8-a7c5-4a12-b6eb-0c7982a3b761
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          │
+        </tspan>
+      </tspan><tspan y="951.999762">
+        <tspan dy="1em" x="16.84666666" style="fill: #585858">
+          ╰
+        </tspan><tspan x="25.269999990000002" style="fill: #585858">
+          ─
+        </tspan><tspan x="33.69333332" style="fill: #585858">
+          ─
+        </tspan><tspan x="42.11666665" style="fill: #585858">
+          ─
+        </tspan><tspan x="50.539999980000005" style="fill: #585858">
+          ─
+        </tspan><tspan x="58.96333331" style="fill: #585858">
+          ─
+        </tspan><tspan x="67.38666664" style="fill: #585858">
+          ─
+        </tspan><tspan x="75.80999997" style="fill: #585858">
+          ─
+        </tspan><tspan x="84.2333333" style="fill: #585858">
+          ─
+        </tspan><tspan x="92.65666663" style="fill: #585858">
+          ─
+        </tspan><tspan x="101.07999996000001" style="fill: #585858">
+          ─
+        </tspan><tspan x="109.50333329" style="fill: #585858">
+          ─
+        </tspan><tspan x="117.92666662" style="fill: #585858">
+          ─
+        </tspan><tspan x="126.34999995" style="fill: #585858">
+          ─
+        </tspan><tspan x="134.77333328" style="fill: #585858">
+          ─
+        </tspan><tspan x="143.19666661" style="fill: #585858">
+          ─
+        </tspan><tspan x="151.61999994" style="fill: #585858">
+          ─
+        </tspan><tspan x="160.04333327" style="fill: #585858">
+          ─
+        </tspan><tspan x="168.4666666" style="fill: #585858">
+          ─
+        </tspan><tspan x="176.88999993000002" style="fill: #585858">
+          ─
+        </tspan><tspan x="185.31333326" style="fill: #585858">
+          ─
+        </tspan><tspan x="193.73666659" style="fill: #585858">
+          ─
+        </tspan><tspan x="202.15999992000002" style="fill: #585858">
+          ─
+        </tspan><tspan x="210.58333325" style="fill: #585858">
+          ─
+        </tspan><tspan x="219.00666658" style="fill: #585858">
+          ─
+        </tspan><tspan x="227.42999991" style="fill: #585858">
+          ─
+        </tspan><tspan x="235.85333324" style="fill: #585858">
+          ─
+        </tspan><tspan x="244.27666657" style="fill: #585858">
+          ─
+        </tspan><tspan x="252.6999999" style="fill: #585858">
+          ─
+        </tspan><tspan x="261.12333323" style="fill: #585858">
+          ─
+        </tspan><tspan x="269.54666656" style="fill: #585858">
+          ─
+        </tspan><tspan x="277.96999989" style="fill: #585858">
+          ─
+        </tspan><tspan x="286.39333322" style="fill: #585858">
+          ─
+        </tspan><tspan x="294.81666655" style="fill: #585858">
+          ─
+        </tspan><tspan x="303.23999988" style="fill: #585858">
+          ─
+        </tspan><tspan x="311.66333321" style="fill: #585858">
+          ─
+        </tspan><tspan x="320.08666654" style="fill: #585858">
+          ─
+        </tspan><tspan x="328.50999987" style="fill: #585858">
+          ─
+        </tspan><tspan x="336.9333332" style="fill: #585858">
+          ─
+        </tspan><tspan x="345.35666653" style="fill: #585858">
+          ─
+        </tspan><tspan x="353.77999986000003" style="fill: #585858">
+          ─
+        </tspan><tspan x="362.20333319" style="fill: #585858">
+          ─
+        </tspan><tspan x="370.62666652" style="fill: #585858">
+          ─
+        </tspan><tspan x="379.04999985" style="fill: #585858">
+          ─
+        </tspan><tspan x="387.47333318" style="fill: #585858">
+          ─
+        </tspan><tspan x="395.89666651" style="fill: #585858">
+          ─
+        </tspan><tspan x="404.31999984000004" style="fill: #585858">
+          ─
+        </tspan><tspan x="412.74333317" style="fill: #585858">
+          ─
+        </tspan><tspan x="421.1666665" style="fill: #585858">
+          ─
+        </tspan><tspan x="429.58999983" style="fill: #585858">
+          ─
+        </tspan><tspan x="438.01333316" style="fill: #585858">
+          ─
+        </tspan><tspan x="446.43666649" style="fill: #585858">
+          ─
+        </tspan><tspan x="454.85999982" style="fill: #585858">
+          ─
+        </tspan><tspan x="463.28333315000003" style="fill: #585858">
+          ─
+        </tspan><tspan x="471.70666648" style="fill: #585858">
+          ─
+        </tspan><tspan x="480.12999981" style="fill: #585858">
+          ─
+        </tspan><tspan x="488.55333314" style="fill: #585858">
+          ─
+        </tspan><tspan x="496.97666647" style="fill: #585858">
+          ─
+        </tspan><tspan x="505.3999998" style="fill: #585858">
+          ─
+        </tspan><tspan x="513.82333313" style="fill: #585858">
+          ─
+        </tspan><tspan x="522.24666646" style="fill: #585858">
+          ─
+        </tspan><tspan x="530.66999979" style="fill: #585858">
+          ─
+        </tspan><tspan x="539.09333312" style="fill: #585858">
+          ─
+        </tspan><tspan x="547.51666645" style="fill: #585858">
+          ─
+        </tspan><tspan x="555.93999978" style="fill: #585858">
+          ─
+        </tspan><tspan x="564.36333311" style="fill: #585858">
+          ─
+        </tspan><tspan x="572.78666644" style="fill: #585858">
+          ─
+        </tspan><tspan x="581.20999977" style="fill: #585858">
+          ─
+        </tspan><tspan x="589.6333331" style="fill: #585858">
+          ─
+        </tspan><tspan x="598.0566664300001" style="fill: #585858">
+          ─
+        </tspan><tspan x="606.47999976" style="fill: #585858">
+          ─
+        </tspan><tspan x="614.90333309" style="fill: #585858">
+          ─
+        </tspan><tspan x="623.32666642" style="fill: #585858">
+          ─
+        </tspan><tspan x="631.74999975" style="fill: #585858">
+          ─
+        </tspan><tspan x="640.17333308" style="fill: #585858">
+          ─
+        </tspan><tspan x="648.59666641" style="fill: #585858">
+          ─
+        </tspan><tspan x="657.01999974" style="fill: #585858">
+          ─
+        </tspan><tspan x="665.44333307" style="fill: #585858">
+          ─
+        </tspan><tspan x="673.8666664" style="fill: #585858">
+          ╯
+        </tspan>
+      </tspan><tspan y="970.6664240000001">
+        <tspan dy="1em" x="16.84666666" style="fill: #d0d0d0">
+          Editing. (Ctrl+S save · Esc cancel)
+        </tspan>
+      </tspan>
+    </text>
+  </svg>
+
+  <svg x="798.63" y="410.667" width="205.333" height="205.333">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000.0 1000.0" style="filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.4))">
+  <defs>
+    <mask id="small-triangle-mask">
+      <rect width="100%" height="100%" fill="white"></rect>
+      <polygon points="700.0 500.0, 400.00000000000006 326.7949192431122, 399.9999999999999 673.2050807568877" fill="black">
+      </polygon>
+    </mask>
+  </defs>
+  <polygon points="1000.0 500.0, 250.0000000000001 66.98729810778059, 249.99999999999977 933.0127018922192" mask="url(#small-triangle-mask)" fill="white">
+  </polygon>
+  <polyline points="673.2050807568878 400.0, 326.7949192431123 600.0" stroke="white" stroke-width="90">
+  </polyline>
+</svg>
+  </svg>
+</svg>
