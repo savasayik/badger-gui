@@ -8,8 +8,7 @@ A fast, minimal, keyboard-driven terminal UI for safely inspecting and
 managing BadgerDB databases.
 
 ## Demo
-
-<a href="https://asciinema.org/a/J4M30sOp6pAQSNu6?autoplay=1"><img src="https://asciinema.org/a/J4M30sOp6pAQSNu6.svg" alt="Badger GUI CLI Demo" width="100%" /></a>
+![demo](docs/badger-gui.svg)
 
 ## Overview
 
