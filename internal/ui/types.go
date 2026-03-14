@@ -97,6 +97,10 @@ type Model struct {
 	confirmPatternDelete bool
 	pendingPattern       string
 
+	// I buffer incoming keys while the user is typing a filter
+	// so that SetItems does not disrupt the active filter input.
+	pendingKeys []string
+
 	// I track edit mode state.
 	editing       bool
 	editor        textarea.Model

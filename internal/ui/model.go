@@ -299,13 +299,22 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.hasMoreKeys = msg.hasMore
 			return m, nil
 		}
+		m.lastKey = msg.lastKey
+		m.hasMoreKeys = msg.hasMore
+
+		// I buffer new keys while the user is typing a filter
+		// so that SetItems does not disrupt the active filter input.
+		if m.list.SettingFilter() {
+			m.pendingKeys = append(m.pendingKeys, msg.keys...)
+			maybeFilter, filterCmd := m.maybeStartFilterWork()
+			return maybeFilter, filterCmd
+		}
+
 		items := m.list.Items()
 		for _, k := range msg.keys {
 			items = append(items, kvItem{key: k})
 		}
 		cmd := m.list.SetItems(items)
-		m.lastKey = msg.lastKey
-		m.hasMoreKeys = msg.hasMore
 		_, moreCmd := m.maybeLoadMore()
 		maybeFilter, filterCmd := m.maybeStartFilterWork()
 		return maybeFilter, tea.Batch(cmd, moreCmd, filterCmd)
@@ -478,6 +487,17 @@ func (m Model) maybeLoadMore() (Model, tea.Cmd) {
 func (m Model) maybeStartFilterWork() (Model, tea.Cmd) {
 	var cmds []tea.Cmd
 	state := m.list.FilterState()
+
+	// I flush buffered keys when the user is no longer typing a filter.
+	if !m.list.SettingFilter() && len(m.pendingKeys) > 0 {
+		items := m.list.Items()
+		for _, k := range m.pendingKeys {
+			items = append(items, kvItem{key: k})
+		}
+		cmds = append(cmds, m.list.SetItems(items))
+		m.pendingKeys = nil
+	}
+
 	if state == list.Unfiltered {
 		m.filterCountLoading = false
 		m.filterCountErr = ""
@@ -485,7 +505,16 @@ func (m Model) maybeStartFilterWork() (Model, tea.Cmd) {
 		m.filterCount = 0
 		m.filterCountValid = false
 		m.loadingAllForFilter = false
-		return m, nil
+
+		// I resume normal pagination after the filter is cleared.
+		m2, moreCmd := m.maybeLoadMore()
+		if moreCmd != nil {
+			cmds = append(cmds, moreCmd)
+		}
+		if len(cmds) > 0 {
+			return m2, tea.Batch(cmds...)
+		}
+		return m2, nil
 	}
 	term := strings.TrimSpace(m.list.FilterValue())
 	if term == "" {
