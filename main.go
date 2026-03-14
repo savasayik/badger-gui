@@ -1,3 +1,9 @@
+// badger-gui — A terminal UI for BadgerDB
+//
+// Author:  Savas AYIK
+// Web:     https://savasayik.com
+// Project: https://github.com/savasayik/badger-gui
+
 package main
 
 import (
