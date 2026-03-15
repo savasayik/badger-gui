@@ -3,7 +3,7 @@ package ui
 import "github.com/charmbracelet/lipgloss"
 
 var (
-	// I keep UI styles here.
+	// UI styles.
 	borderColor = lipgloss.Color("240")
 	errStyle    = lipgloss.NewStyle().Foreground(lipgloss.Color("203"))
 	okStyle     = lipgloss.NewStyle().Foreground(lipgloss.Color("36"))

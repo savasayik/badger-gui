@@ -17,15 +17,15 @@ type BadgerStore struct {
 func OpenBadger(path string) (*BadgerStore, error) {
 	opts := badger.DefaultOptions(path)
 
-	opts.SyncWrites = false // I disable sync writes for maximum throughput.
+	opts.SyncWrites = false // Disable sync writes for maximum throughput.
 	opts.NumMemtables = 5
 	opts.NumLevelZeroTables = 5
 	opts.NumLevelZeroTablesStall = 10
-	opts.ValueLogFileSize = 1 << 30 // I set the value log file size to 1GB.
+	opts.ValueLogFileSize = 1 << 30 // Value log file size: 1GB.
 	opts.ValueLogMaxEntries = 1000000
-	opts.NumCompactors = 4            // I tune this for available CPU.
-	opts.Compression = options.Snappy // I prefer Snappy; ZSTD costs more CPU.
-	opts.BlockCacheSize = 512 << 20   // I set the block cache to 512MB.
+	opts.NumCompactors = 4            // Tuned for available CPU.
+	opts.Compression = options.Snappy // Snappy over ZSTD; lower CPU cost.
+	opts.BlockCacheSize = 512 << 20   // Block cache: 512MB.
 	opts.IndexCacheSize = 256 << 20
 
 	db, err := badger.Open(opts)
@@ -105,7 +105,12 @@ func (s *BadgerStore) CountKeysMatching(term string) (int, error) {
 	return count, err
 }
 
-func (s *BadgerStore) GroupKeyCounts() (map[string]int, error) {
+// TreeGroupCounts iterates all keys and counts every `:` separated prefix up to maxDepth.
+// The last segment is never counted as a group — it is the leaf value, not a prefix.
+// For example, "log:error:auth:xyz" with maxDepth=3 increments
+// "log", "log:error", and "log:error:auth" (3 colons → 4 parts → 3 prefix levels).
+// But "wlog:uuid" (1 colon → 2 parts) only increments "wlog".
+func (s *BadgerStore) TreeGroupCounts(maxDepth int) (map[string]int, error) {
 	counts := make(map[string]int)
 	err := s.db.View(func(txn *badger.Txn) error {
 		opts := badger.DefaultIteratorOptions
@@ -114,22 +119,24 @@ func (s *BadgerStore) GroupKeyCounts() (map[string]int, error) {
 		defer it.Close()
 		for it.Rewind(); it.Valid(); it.Next() {
 			key := string(it.Item().Key())
-			group := keyGroup(key)
-			counts[group]++
+			parts := strings.SplitN(key, ":", maxDepth+1)
+			// Stop before the last part — the last segment is the leaf, not a group.
+			limit := len(parts) - 1
+			if limit > maxDepth {
+				limit = maxDepth
+			}
+			prefix := ""
+			for i := 0; i < limit; i++ {
+				if i > 0 {
+					prefix += ":"
+				}
+				prefix += parts[i]
+				counts[prefix]++
+			}
 		}
 		return nil
 	})
 	return counts, err
-}
-
-func keyGroup(key string) string {
-	if key == "" {
-		return "(empty)"
-	}
-	if idx := strings.IndexByte(key, ':'); idx > 0 {
-		return key[:idx]
-	}
-	return "(no prefix)"
 }
 
 func fuzzyMatch(pattern []rune, target string) bool {
@@ -148,7 +155,7 @@ func fuzzyMatch(pattern []rune, target string) bool {
 	return false
 }
 
-// I lifted this from strings.EqualFold.
+// equalFold is adapted from strings.EqualFold.
 func equalFold(tr, sr rune) bool {
 	if tr == sr {
 		return true
@@ -156,16 +163,16 @@ func equalFold(tr, sr rune) bool {
 	if tr < sr {
 		tr, sr = sr, tr
 	}
-	// I fast-path ASCII.
+	// Fast-path ASCII.
 	if tr < utf8.RuneSelf {
-		// I normalize ASCII case by comparing lower/upper pairs.
+		// Normalize ASCII case by comparing lower/upper pairs.
 		if 'A' <= sr && sr <= 'Z' && tr == sr+'a'-'A' {
 			return true
 		}
 		return false
 	}
 
-	// I fall back to SimpleFold for the general case, which cycles equivalents.
+	// Fall back to SimpleFold for the general case, which cycles equivalents.
 	r := unicode.SimpleFold(sr)
 	for r != sr && r < tr {
 		r = unicode.SimpleFold(r)

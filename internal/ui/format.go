@@ -63,12 +63,12 @@ func (m Model) reloadSelected() (tea.Model, tea.Cmd) {
 			return m, nil
 		}
 	}
-	// I clear editKey on format change.
+	// Clear editKey on format change.
 	m.editKey = ""
 	return m, loadValueCmd(m.store, m.selected)
 }
 
-// I keep edit helpers here.
+// Edit helpers.
 
 func (m *Model) startEditWithContent(key string, raw []byte) {
 	m.editKey = key
@@ -76,19 +76,19 @@ func (m *Model) startEditWithContent(key string, raw []byte) {
 	m.lastLoadValue = raw
 	m.editorHelp = "(Ctrl+S save · Esc cancel)"
 
-	// I set formatted content in the editor.
+	// Set formatted content in the editor.
 	switch m.valFormat {
 	case fmtText:
 		if utf8.Valid(raw) {
 			m.editor.SetValue(string(raw))
 		} else {
-			m.editor.SetValue("") // I leave it empty for binary data.
+			m.editor.SetValue("") // Leave empty for binary data.
 			m.status = errStyle.Render("Warning: invalid UTF-8; editing in text mode may be unsafe.")
 		}
 	case fmtBase64:
 		m.editor.SetValue(base64.StdEncoding.EncodeToString(raw))
 	case fmtHex:
-		// I expect plain hex (not a dump).
+		// Expect plain hex (not a dump).
 		m.editor.SetValue(strings.ToLower(hex.EncodeToString(raw)))
 	case fmtJSON:
 		if !utf8.Valid(raw) {
@@ -98,7 +98,7 @@ func (m *Model) startEditWithContent(key string, raw []byte) {
 		}
 		var any interface{}
 		if err := json.Unmarshal(raw, &any); err != nil {
-			// I still show raw text so it can be fixed.
+			// Still show raw text so it can be fixed.
 			m.editor.SetValue(string(raw))
 			m.status = errStyle.Render(fmt.Sprintf("Warning: invalid JSON: %v (you can fix it)", err))
 			break
@@ -122,7 +122,7 @@ func (m Model) bytesFromEditor() ([]byte, error) {
 		}
 		return b, nil
 	case fmtHex:
-		// I strip whitespace, newlines, and 0x; I expect plain hex.
+		// Strip whitespace, newlines, and 0x prefix; expect plain hex.
 		clean := strings.ToLower(content)
 		clean = strings.ReplaceAll(clean, "0x", "")
 		re := regexp.MustCompile(`[^0-9a-f]`)
@@ -136,7 +136,7 @@ func (m Model) bytesFromEditor() ([]byte, error) {
 		}
 		return b, nil
 	case fmtJSON:
-		// I validate JSON.
+		// Validate JSON.
 		if !utf8.ValidString(content) {
 			return nil, errors.New("JSON must be UTF-8")
 		}
@@ -144,7 +144,7 @@ func (m Model) bytesFromEditor() ([]byte, error) {
 		if err := json.Unmarshal([]byte(content), &any); err != nil {
 			return nil, fmt.Errorf("JSON parse error: %w", err)
 		}
-		// Pretty-print for now; I can switch to raw if needed.
+		// Pretty-print the validated JSON.
 		pretty, _ := json.MarshalIndent(any, "", "  ")
 		return pretty, nil
 	default:

@@ -3,6 +3,7 @@ package ui
 import (
 	"path"
 	"sort"
+	"strings"
 
 	tea "github.com/charmbracelet/bubbletea"
 )
@@ -34,22 +35,120 @@ func countFilterCmd(store Store, term string) tea.Cmd {
 	}
 }
 
-func loadGroupCountsCmd(store Store) tea.Cmd {
+// loadTreeGroupCountsCmd builds a tree-ordered flat list from the store's prefix→count map.
+// The result is a pre-order traversal: each level sorted by count desc.
+func loadTreeGroupCountsCmd(store Store, maxDepth int) tea.Cmd {
 	return func() tea.Msg {
-		counts, err := store.GroupKeyCounts()
+		flat, err := store.TreeGroupCounts(maxDepth)
 		if err != nil {
 			return groupCountsMsg{err: err}
 		}
-		out := make([]groupCount, 0, len(counts))
-		for k, v := range counts {
-			out = append(out, groupCount{group: k, count: v})
+
+		// Build a tree of nodes, then flatten into pre-order.
+		type node struct {
+			name     string
+			prefix   string
+			count    int
+			depth    int
+			children []*node
 		}
-		sort.Slice(out, func(i, j int) bool {
-			if out[i].count == out[j].count {
-				return out[i].group < out[j].group
+		root := &node{children: make([]*node, 0)}
+		lookup := map[string]*node{"": root}
+
+		// Collect all prefixes and sort by depth then name for deterministic insertion.
+		type prefixEntry struct {
+			prefix string
+			count  int
+			depth  int
+			parent string
+			name   string
+		}
+		entries := make([]prefixEntry, 0, len(flat))
+		for prefix, count := range flat {
+			depth := strings.Count(prefix, ":") + 1
+			parent := ""
+			name := prefix
+			if idx := strings.LastIndex(prefix, ":"); idx >= 0 {
+				parent = prefix[:idx]
+				name = prefix[idx+1:]
 			}
-			return out[i].count > out[j].count
+			entries = append(entries, prefixEntry{prefix, count, depth, parent, name})
+		}
+		sort.Slice(entries, func(i, j int) bool {
+			if entries[i].depth != entries[j].depth {
+				return entries[i].depth < entries[j].depth
+			}
+			return entries[i].prefix < entries[j].prefix
 		})
+
+		for _, e := range entries {
+			n := &node{
+				name:     e.name,
+				prefix:   e.prefix,
+				count:    e.count,
+				depth:    e.depth - 1,
+				children: make([]*node, 0),
+			}
+			lookup[e.prefix] = n
+			if p, ok := lookup[e.parent]; ok {
+				p.children = append(p.children, n)
+			}
+		}
+
+		// Sort children at each level by count desc, then name asc.
+		var sortChildren func(n *node)
+		sortChildren = func(n *node) {
+			sort.Slice(n.children, func(i, j int) bool {
+				if n.children[i].count != n.children[j].count {
+					return n.children[i].count > n.children[j].count
+				}
+				return n.children[i].prefix < n.children[j].prefix
+			})
+			for _, c := range n.children {
+				sortChildren(c)
+			}
+		}
+		sortChildren(root)
+
+		// Prune nodes that are not real groups:
+		// - A child with count == 1 is a single record, not a group.
+		// - A node whose only child has the same count adds no information.
+		var prune func(n *node)
+		prune = func(n *node) {
+			for _, c := range n.children {
+				prune(c)
+			}
+			filtered := make([]*node, 0, len(n.children))
+			for _, c := range n.children {
+				if c.count <= 1 {
+					continue
+				}
+				// Skip a child that is the sole child and has the same count
+				// as its parent — it adds no useful breakdown.
+				if len(n.children) == 1 && c.count == n.count && n != root {
+					continue
+				}
+				filtered = append(filtered, c)
+			}
+			n.children = filtered
+		}
+		prune(root)
+
+		// Flatten into pre-order traversal.
+		var out []groupCount
+		var walk func(n *node)
+		walk = func(n *node) {
+			for _, c := range n.children {
+				out = append(out, groupCount{
+					group: c.prefix,
+					count: c.count,
+					depth: c.depth,
+				})
+				walk(c)
+			}
+		}
+		walk(root)
+
 		return groupCountsMsg{counts: out}
 	}
 }

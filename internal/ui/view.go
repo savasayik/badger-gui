@@ -67,8 +67,7 @@ func (m Model) View() string {
 		return m.aboutView(lay)
 	}
 	if m.showGroupCounts {
-		panel := lipgloss.NewStyle().Padding(appPadY, appPadX).Render(m.groupCountsView(lay.innerWidth))
-		return lipgloss.JoinVertical(lipgloss.Left, panel, app)
+		return m.groupCountsView(lay)
 	}
 	return app
 }
@@ -134,38 +133,78 @@ func (m Model) appHeaderRight() string {
 	return appMetaStyle.Render(strings.Join(parts, "  "))
 }
 
-func (m Model) groupCountsView(width int) string {
-	title := "Group counts (prefix before ':')"
-	lines := []string{title}
+func (m Model) groupCountsView(lay layout) string {
+	modalWidth := min(lay.innerWidth-4, 72)
+	if modalWidth < 30 {
+		modalWidth = lay.innerWidth
+	}
+
+	var bodyLines []string
 	if m.groupCountsLoading {
-		lines = append(lines, "Loading…")
+		bodyLines = append(bodyLines, fmt.Sprintf("%s Scanning keys…", m.groupSpinner.View()))
 	} else if m.groupCountsErr != "" {
-		lines = append(lines, fmt.Sprintf("Error: %s", m.groupCountsErr))
+		bodyLines = append(bodyLines, fmt.Sprintf("Error: %s", m.groupCountsErr))
 	} else if len(m.groupCounts) == 0 {
-		lines = append(lines, "No keys found.")
+		bodyLines = append(bodyLines, "No keys found.")
 	} else {
-		maxLines := m.height / 2
-		if maxLines < 5 {
-			maxLines = 5
+		maxVisible := lay.innerHeight/2 - 6
+		if maxVisible < 5 {
+			maxVisible = 5
 		}
-		if maxLines > len(m.groupCounts)+1 {
-			maxLines = len(m.groupCounts) + 1
+
+		// Adjust scroll offset so the cursor stays visible.
+		if m.groupCursor < m.groupScrollOffset {
+			m.groupScrollOffset = m.groupCursor
 		}
-		for i := 0; i < len(m.groupCounts) && i < maxLines-1; i++ {
+		if m.groupCursor >= m.groupScrollOffset+maxVisible {
+			m.groupScrollOffset = m.groupCursor - maxVisible + 1
+		}
+
+		end := m.groupScrollOffset + maxVisible
+		if end > len(m.groupCounts) {
+			end = len(m.groupCounts)
+		}
+
+		prefixColWidth := modalWidth - 14
+		if prefixColWidth < 20 {
+			prefixColWidth = 20
+		}
+		for i := m.groupScrollOffset; i < end; i++ {
 			g := m.groupCounts[i]
-			name := g.group
-			if lipgloss.Width(name) > 20 {
-				name = truncateString(name, 20)
+			indent := strings.Repeat("  ", g.depth)
+			name := indent + g.group
+			if lipgloss.Width(name) > prefixColWidth {
+				name = truncateString(name, prefixColWidth)
 			}
-			lines = append(lines, fmt.Sprintf("%-20s %d", name, g.count))
+			countStr := fmt.Sprintf("%d", g.count)
+			gap := prefixColWidth - lipgloss.Width(name) + 2
+			if gap < 1 {
+				gap = 1
+			}
+			line := name + strings.Repeat(" ", gap) + countStr
+
+			if i == m.groupCursor {
+				line = lipgloss.NewStyle().
+					Foreground(lipgloss.Color("170")).
+					Bold(true).
+					Render("│ " + line)
+			} else {
+				line = "  " + line
+			}
+			bodyLines = append(bodyLines, line)
 		}
-		if len(m.groupCounts) > maxLines-1 {
-			lines = append(lines, fmt.Sprintf("… %d more", len(m.groupCounts)-(maxLines-1)))
+
+		if end < len(m.groupCounts) {
+			bodyLines = append(bodyLines, fmt.Sprintf("  … %d more", len(m.groupCounts)-end))
 		}
 	}
-	content := strings.Join(lines, "\n")
-	panel := paneStyle.Width(width).Render(content)
-	return panel
+
+	body := strings.Join(bodyLines, "\n")
+	header := aboutTitleStyle.Render("Data Groups") + "\n" +
+		appMetaStyle.Render("↑/↓: navigate · Enter: filter · Esc: close") + "\n"
+	box := aboutBoxStyle.Width(modalWidth).Render(header + "\n" + body)
+	content := lipgloss.Place(lay.innerWidth, lay.innerHeight, lipgloss.Center, lipgloss.Center, box)
+	return lipgloss.NewStyle().Padding(appPadY, appPadX).Render(content)
 }
 
 func (m Model) aboutView(lay layout) string {

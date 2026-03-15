@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/charmbracelet/bubbles/list"
+	"github.com/charmbracelet/bubbles/spinner"
 	"github.com/charmbracelet/bubbles/textarea"
 	"github.com/charmbracelet/bubbles/textinput"
 	"github.com/charmbracelet/bubbles/viewport"
@@ -35,6 +36,9 @@ func NewModel(store Store, dbPath string) Model {
 	pi.CharLimit = 256
 	pi.Prompt = "Pattern: "
 
+	sp := spinner.New()
+	sp.Spinner = spinner.Dot
+
 	return Model{
 		store:        store,
 		list:         l,
@@ -43,6 +47,7 @@ func NewModel(store Store, dbPath string) Model {
 		editor:       ta,
 		dbPath:       dbPath,
 		patternInput: pi,
+		groupSpinner: sp,
 		pageSize:     defaultPageSize,
 		hasMoreKeys:  true,
 		loadingKeys:  true,
@@ -67,7 +72,47 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 			return m, nil
 		}
-		// I handle delete confirmation flow.
+
+		// Handle group counts modal — both during loading and after data arrives.
+		if m.showGroupCounts {
+			if m.groupCountsLoading {
+				// Only allow Esc to close while loading; all other keys are swallowed.
+				if msg.String() == "esc" || msg.String() == "g" {
+					m.showGroupCounts = false
+					m.groupCountsLoading = false
+				}
+				return m, nil
+			}
+			switch msg.String() {
+			case "esc", "g":
+				m.showGroupCounts = false
+				return m, nil
+			case "up", "k":
+				if m.groupCursor > 0 {
+					m.groupCursor--
+				}
+				return m, nil
+			case "down", "j":
+				if m.groupCursor < len(m.groupCounts)-1 {
+					m.groupCursor++
+				}
+				return m, nil
+			case "enter":
+				if m.groupCursor >= 0 && m.groupCursor < len(m.groupCounts) {
+					// Close the modal and apply the selected group as a filter.
+					selected := m.groupCounts[m.groupCursor]
+					m.showGroupCounts = false
+					m.groupCursor = 0
+					m.list.SetFilterText(selected.group)
+					maybeFilter, filterCmd := m.maybeStartFilterWork()
+					return maybeFilter, filterCmd
+				}
+				return m, nil
+			}
+			return m, nil
+		}
+
+		// Handle delete confirmation flow.
 		if m.confirmDelete {
 			switch msg.String() {
 			case "y", "Y", "enter":
@@ -85,7 +130,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, nil
 		}
 
-		// I handle pattern delete confirmation.
+		// Handle pattern delete confirmation.
 		if m.confirmPatternDelete {
 			switch msg.String() {
 			case "y", "Y", "enter":
@@ -103,18 +148,18 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, nil
 		}
 
-		// I handle edit mode.
+		// Handle edit mode.
 		if m.editing {
 			switch msg.String() {
 			case "esc":
 				m.editing = false
-				m.editKey = "" // I clear the edit key when canceling.
+				m.editKey = "" // Clear the edit key when canceling.
 				m.focusRight = true
 				m.status = "Edit canceled."
 				m.updateEditorLayout(computeLayout(m.width, m.height))
 				return m, nil
 			case "ctrl+s":
-				// I save changes.
+				// Save changes.
 				bytes, err := m.bytesFromEditor()
 				if err != nil {
 					m.status = errStyle.Render(fmt.Sprintf("Error: save failed: %v", err))
@@ -123,13 +168,13 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.status = "Saving..."
 				return m, saveValueCmd(m.store, m.editKey, bytes)
 			}
-			// I pass through other editor keys.
+			// Pass through other editor keys.
 			var ecmd tea.Cmd
 			m.editor, ecmd = m.editor.Update(msg)
 			return m, ecmd
 		}
 
-		// I handle pattern input.
+		// Handle pattern input.
 		if m.patternDelete {
 			switch msg.String() {
 			case "esc":
@@ -161,7 +206,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, pcmd
 		}
 
-		// I disable global shortcuts while filtering.
+		// Disable global shortcuts while filtering.
 		if m.list.SettingFilter() {
 			var cmd tea.Cmd
 			m.list, cmd = m.list.Update(msg)
@@ -169,7 +214,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return maybeFilter, tea.Batch(cmd, filterCmd)
 		}
 
-		// I handle right-panel focus (value view).
+		// Handle right-panel focus (value view).
 		if m.focusRight && !m.editing {
 			switch msg.String() {
 			case "esc", "shift+left":
@@ -209,7 +254,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, vcmd
 		}
 
-		// I handle normal mode.
+		// Handle normal mode.
 		switch msg.String() {
 		case "ctrl+c", "q", "esc":
 			return m, tea.Quit
@@ -234,7 +279,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			i, ok := m.list.SelectedItem().(kvItem)
 			if ok {
 				m.selected = i.key
-				m.editKey = "" // I clear editKey for normal loads.
+				m.editKey = "" // Clear editKey for normal loads.
 				m.focusRight = true
 				return m, loadValueCmd(m.store, i.key)
 			}
@@ -256,14 +301,14 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, nil
 
 		case "e":
-			// I enter edit mode.
+			// Enter edit mode.
 			i, ok := m.list.SelectedItem().(kvItem)
 			if ok {
 				m.selected = i.key
-				m.editKey = i.key // I mark that edit mode should start after load.
+				m.editKey = i.key // Mark that edit mode should start after load.
 				m.focusRight = true
 				m.status = "Loading..."
-				// I load the value via loadValueCmd.
+				// Load the value via loadValueCmd.
 				return m, loadValueCmd(m.store, i.key)
 			}
 		case "g", "G", "ctrl+g":
@@ -271,7 +316,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 
 	case tea.WindowSizeMsg:
-		// I split the window into two columns.
+		// Split the window into two columns.
 		if !m.ready {
 			m.ready = true
 		}
@@ -302,7 +347,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.lastKey = msg.lastKey
 		m.hasMoreKeys = msg.hasMore
 
-		// I buffer new keys while the user is typing a filter
+		// Buffer new keys while the user is typing a filter
 		// so that SetItems does not disrupt the active filter input.
 		if m.list.SettingFilter() {
 			m.pendingKeys = append(m.pendingKeys, msg.keys...)
@@ -344,12 +389,21 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.groupCounts = msg.counts
 		return m, nil
 
+	case spinner.TickMsg:
+		// Update the spinner only while the group modal is loading.
+		if m.showGroupCounts && m.groupCountsLoading {
+			var cmd tea.Cmd
+			m.groupSpinner, cmd = m.groupSpinner.Update(msg)
+			return m, cmd
+		}
+		return m, nil
+
 	case loadValueMsg:
 		if msg.key != m.selected && m.editKey != msg.key {
 			return m, nil
 		}
 		if msg.err != nil {
-			// I clear editKey on error.
+			// Clear editKey on error.
 			if m.editKey == msg.key {
 				m.editKey = ""
 			}
@@ -359,21 +413,21 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 		m.lastLoadValue = msg.value
 
-		var cmd tea.Cmd // I keep a focus command here.
+		var cmd tea.Cmd // Focus command.
 
-		// I start edit mode only when load was triggered by 'e' (editKey set).
+		// Start edit mode only when load was triggered by 'e' (editKey set).
 		if m.editKey == msg.key && !m.editing {
-			// I start edit mode.
+			// Start edit mode.
 			m.startEditWithContent(msg.key, msg.value)
 			m.updateEditorLayout(computeLayout(m.width, m.height))
 
-			// I return focus to the editor to activate editing.
+			// Return focus to the editor to activate editing.
 			cmd = m.editor.Focus()
 
-			return m, cmd // I return the focus command.
+			return m, cmd
 		}
 
-		// I handle normal loads (Enter or format change).
+		// Handle normal loads (Enter or format change).
 		m.viewport.SetContent(m.formatValue(msg.key, msg.value))
 		m.viewport.GotoTop()
 		return m, nil
@@ -383,12 +437,12 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.status = fmt.Sprintf("Error: delete failed: %v", msg.err)
 			return m, nil
 		}
-		// I remove the selected item from the list.
+		// Remove the selected item from the list.
 		idx := m.list.Index()
 		if idx >= 0 && idx < len(m.list.Items()) {
 			m.list.RemoveItem(idx)
 		}
-		// I clear the right panel and selection.
+		// Clear the right panel and selection.
 		m.selected = ""
 		m.viewport.SetContent("")
 		m.status = okStyle.Render(fmt.Sprintf("'%s' deleted.", msg.key))
@@ -434,15 +488,15 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, nil
 		}
 		m.editing = false
-		m.editKey = "" // I clear editKey after a successful save.
+		m.editKey = "" // Clear editKey after a successful save.
 		m.focusRight = true
 		m.status = okStyle.Render(fmt.Sprintf("'%s' updated.", msg.key))
 		m.updateEditorLayout(computeLayout(m.width, m.height))
-		// I reload the right panel.
+		// Reload the right panel.
 		return m, loadValueCmd(m.store, msg.key)
 	}
 
-	// I update the list and viewport.
+	// Update the list and viewport.
 	var cmd tea.Cmd
 	var prevKey string
 	if !m.focusRight && !m.editing && !m.list.SettingFilter() {
@@ -488,7 +542,7 @@ func (m Model) maybeStartFilterWork() (Model, tea.Cmd) {
 	var cmds []tea.Cmd
 	state := m.list.FilterState()
 
-	// I flush buffered keys when the user is no longer typing a filter.
+	// Flush buffered keys when the user is no longer typing a filter.
 	if !m.list.SettingFilter() && len(m.pendingKeys) > 0 {
 		items := m.list.Items()
 		for _, k := range m.pendingKeys {
@@ -506,7 +560,7 @@ func (m Model) maybeStartFilterWork() (Model, tea.Cmd) {
 		m.filterCountValid = false
 		m.loadingAllForFilter = false
 
-		// I resume normal pagination after the filter is cleared.
+		// Resume normal pagination after the filter is cleared.
 		m2, moreCmd := m.maybeLoadMore()
 		if moreCmd != nil {
 			cmds = append(cmds, moreCmd)
@@ -528,7 +582,7 @@ func (m Model) maybeStartFilterWork() (Model, tea.Cmd) {
 	}
 	if state == list.FilterApplied {
 		if term == m.filterTerm && m.filterCountValid && !m.filterCountLoading {
-			// I keep the current count.
+			// Keep the current count.
 		} else if !m.filterCountLoading || term != m.filterTerm {
 			m.filterTerm = term
 			m.filterCountLoading = true
@@ -556,7 +610,9 @@ func (m Model) toggleGroupCounts() (Model, tea.Cmd) {
 	if m.groupCountsLoading {
 		return m, nil
 	}
+	m.groupCursor = 0
+	m.groupScrollOffset = 0
 	m.groupCountsLoading = true
 	m.groupCountsErr = ""
-	return m, loadGroupCountsCmd(m.store)
+	return m, tea.Batch(m.groupSpinner.Tick, loadTreeGroupCountsCmd(m.store, 3))
 }
