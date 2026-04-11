@@ -30,7 +30,7 @@ It operates directly on the embedded Badger database, acting purely as an intera
 badger-gui is built for engineers who want to stay close to their data during development, debugging, and incident analysis.
 
 ## Demo
-![demo](docs/badger-gui.svg)
+![demo](docs/badger-gui.gif)
 
 ## Built for BadgerDB
 
