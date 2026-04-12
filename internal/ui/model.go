@@ -177,6 +177,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.editing = true
 				m.editKey = name
 				m.focusRight = true
+				m.valFormat = fmtText
 				m.editor.SetValue("")
 				m.editor.CursorEnd()
 				m.lastLoadValue = nil
@@ -260,6 +261,12 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.list, cmd = m.list.Update(msg)
 			maybeFilter, filterCmd := m.maybeStartFilterWork()
 			return maybeFilter, tea.Batch(cmd, filterCmd)
+		}
+
+		// Handle full database export.
+		if msg.String() == "ctrl+e" && !m.editing && !m.creatingKey {
+			m.status = "Exporting entire database..."
+			return m, exportAllCmd(m.store)
 		}
 
 		// Handle undo in any non-modal, non-editing state.

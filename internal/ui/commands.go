@@ -240,6 +240,31 @@ func exportVisibleCmd(store Store, keys []string) tea.Cmd {
 	}
 }
 
+func exportAllCmd(store Store) tea.Cmd {
+	return func() tea.Msg {
+		data := make(map[string]interface{})
+		startAfter := ""
+		for {
+			keys, lastKey, hasMore, err := store.ListKeysPage(startAfter, 1000)
+			if err != nil {
+				return exportResultMsg{err: fmt.Errorf("list keys: %w", err)}
+			}
+			for _, k := range keys {
+				v, err := store.Get(k)
+				if err != nil {
+					return exportResultMsg{err: fmt.Errorf("key %q: %w", k, err)}
+				}
+				data[k] = smartJSONValue(v)
+			}
+			if !hasMore || len(keys) == 0 {
+				break
+			}
+			startAfter = lastKey
+		}
+		return writeExportFile(data, len(data))
+	}
+}
+
 func smartJSONValue(v []byte) interface{} {
 	var parsed interface{}
 	if json.Unmarshal(v, &parsed) == nil {
