@@ -3,8 +3,8 @@ package app
 import (
 	"fmt"
 
-	"badge-reader/internal/store"
-	"badge-reader/internal/ui"
+	"badger-gui/internal/store"
+	"badger-gui/internal/ui"
 	tea "github.com/charmbracelet/bubbletea"
 )
 

@@ -105,6 +105,15 @@ type Model struct {
 	// so that SetItems does not disrupt the active filter input.
 	pendingKeys []string
 
+	// New key creation state.
+	creatingKey   bool
+	newKeyInput   textinput.Model
+	creatingValue bool
+	newKeyName    string
+
+	// Undo stack.
+	undoStack []undoEntry
+
 	// Edit mode state.
 	editing       bool
 	editor        textarea.Model
@@ -120,19 +129,22 @@ type loadValueMsg struct {
 }
 
 type deleteResultMsg struct {
-	key string
-	err error
+	key      string
+	oldValue []byte
+	err      error
 }
 
 type saveResultMsg struct {
-	key string
-	err error
+	key   string
+	err   error
+	isNew bool
 }
 
 type deletePatternResultMsg struct {
-	pattern string
-	keys    []string
-	err     error
+	pattern   string
+	keys      []string
+	oldValues map[string][]byte
+	err       error
 }
 
 type loadKeysMsg struct {
@@ -158,6 +170,37 @@ type groupCount struct {
 type groupCountsMsg struct {
 	counts []groupCount
 	err    error
+}
+
+type clipboardResultMsg struct {
+	what string
+	err  error
+}
+
+type exportResultMsg struct {
+	filePath string
+	count    int
+	err      error
+}
+
+type undoOpType int
+
+const (
+	undoEdit   undoOpType = iota
+	undoDelete
+	undoCreate
+)
+
+type undoEntry struct {
+	op       undoOpType
+	key      string
+	oldValue []byte
+}
+
+type undoResultMsg struct {
+	op  undoOpType
+	key string
+	err error
 }
 
 type visualLine struct {

@@ -1,10 +1,17 @@
 package ui
 
 import (
+	"encoding/base64"
+	"encoding/json"
+	"fmt"
+	"os"
 	"path"
 	"sort"
 	"strings"
+	"time"
+	"unicode/utf8"
 
+	"github.com/atotto/clipboard"
 	tea "github.com/charmbracelet/bubbletea"
 )
 
@@ -162,14 +169,16 @@ func saveValueCmd(store Store, key string, value []byte) tea.Cmd {
 
 func deleteKeyCmd(store Store, key string) tea.Cmd {
 	return func() tea.Msg {
+		oldVal, _ := store.Get(key)
 		err := store.Delete(key)
-		return deleteResultMsg{key: key, err: err}
+		return deleteResultMsg{key: key, oldValue: oldVal, err: err}
 	}
 }
 
 func deletePatternCmd(store Store, pattern string) tea.Cmd {
 	return func() tea.Msg {
 		var deleted []string
+		oldValues := make(map[string][]byte)
 		startAfter := ""
 		for {
 			keys, lastKey, hasMore, err := store.ListKeysPage(startAfter, 1000)
@@ -182,6 +191,9 @@ func deletePatternCmd(store Store, pattern string) tea.Cmd {
 					return deletePatternResultMsg{pattern: pattern, err: err}
 				}
 				if ok {
+					if oldVal, getErr := store.Get(k); getErr == nil {
+						oldValues[k] = oldVal
+					}
 					if err := store.Delete(k); err != nil {
 						return deletePatternResultMsg{pattern: pattern, err: err}
 					}
@@ -193,10 +205,88 @@ func deletePatternCmd(store Store, pattern string) tea.Cmd {
 			}
 			startAfter = lastKey
 		}
-		return deletePatternResultMsg{pattern: pattern, keys: deleted}
+		return deletePatternResultMsg{pattern: pattern, keys: deleted, oldValues: oldValues}
 	}
 }
 
 func matchPattern(pattern, key string) (bool, error) {
 	return path.Match(pattern, key)
+}
+
+func exportSingleCmd(store Store, key string) tea.Cmd {
+	return func() tea.Msg {
+		value, err := store.Get(key)
+		if err != nil {
+			return exportResultMsg{err: fmt.Errorf("key %q: %w", key, err)}
+		}
+		data := map[string]interface{}{
+			key: smartJSONValue(value),
+		}
+		return writeExportFile(data, 1)
+	}
+}
+
+func exportVisibleCmd(store Store, keys []string) tea.Cmd {
+	return func() tea.Msg {
+		data := make(map[string]interface{}, len(keys))
+		for _, k := range keys {
+			v, err := store.Get(k)
+			if err != nil {
+				return exportResultMsg{err: fmt.Errorf("key %q: %w", k, err)}
+			}
+			data[k] = smartJSONValue(v)
+		}
+		return writeExportFile(data, len(keys))
+	}
+}
+
+func smartJSONValue(v []byte) interface{} {
+	var parsed interface{}
+	if json.Unmarshal(v, &parsed) == nil {
+		return parsed
+	}
+	if utf8.Valid(v) {
+		return string(v)
+	}
+	return base64.StdEncoding.EncodeToString(v)
+}
+
+func writeExportFile(data map[string]interface{}, count int) exportResultMsg {
+	ts := time.Now().Format("20060102_150405")
+	filename := fmt.Sprintf("badger_export_%s.json", ts)
+	b, err := json.MarshalIndent(data, "", "  ")
+	if err != nil {
+		return exportResultMsg{err: err}
+	}
+	if err := os.WriteFile(filename, b, 0644); err != nil {
+		return exportResultMsg{err: err}
+	}
+	return exportResultMsg{filePath: filename, count: count}
+}
+
+func undoCmd(store Store, entry undoEntry) tea.Cmd {
+	return func() tea.Msg {
+		var err error
+		switch entry.op {
+		case undoEdit, undoDelete:
+			err = store.Set(entry.key, entry.oldValue)
+		case undoCreate:
+			err = store.Delete(entry.key)
+		}
+		return undoResultMsg{op: entry.op, key: entry.key, err: err}
+	}
+}
+
+func createKeyCmd(store Store, key string, value []byte) tea.Cmd {
+	return func() tea.Msg {
+		err := store.Set(key, value)
+		return saveResultMsg{key: key, err: err, isNew: true}
+	}
+}
+
+func copyToClipboardCmd(content string, what string) tea.Cmd {
+	return func() tea.Msg {
+		err := clipboard.WriteAll(content)
+		return clipboardResultMsg{what: what, err: err}
+	}
 }

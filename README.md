@@ -124,8 +124,12 @@ responsibility boundaries.
     -   base64
     -   json (auto-detected + formatted)
 -   Inline edit & save (Ctrl+S)
+-   Create new key/value pairs
 -   Delete single key
 -   Delete by pattern
+-   Undo edits, deletes, and creations (Ctrl+Z)
+-   Copy key name or value to clipboard
+-   Export single key or all visible keys to JSON
 -   Group counts by prefix
 -   About dialog (F1)
 
@@ -164,8 +168,13 @@ Short flag:
 | j               | JSON view                               |
 | e               | Edit value                              |
 | Ctrl+S          | Save edited value                       |
+| n               | Create new key/value pair               |
 | d / Delete      | Delete selected key                     |
 | p               | Delete by pattern                       |
+| Ctrl+Z          | Undo last operation                     |
+| c               | Copy key name or value to clipboard     |
+| x               | Export selected key to JSON file        |
+| X               | Export all visible keys to JSON file    |
 | g               | Group counts by prefix                  |
 | F1              | About                                   |
 | q               | Quit                                    |
@@ -262,12 +271,20 @@ Switch to `text` or `hex` view to inspect raw content.
 
 ## Roadmap
 
--   Advanced prefix filtering
--   Export / Import functionality
--   Statistics view
+### Backlog
+
+-   Unit & integration tests for Store layer, UI state machine, and format utilities
+-   CI/CD pipeline (GitHub Actions for build, test, lint)
+-   Linting configuration (golangci-lint)
+-   Full-text search across values (not just key names)
+-   GoReleaser for automated cross-platform binary releases
+-   Mouse support (optional click support for list items)
+-   Theme switching (light/dark toggle and custom color schemes)
+-   Multi-DB support (open and switch between multiple databases)
+-   Import from JSON files
 -   Read-only enforcement mode
+-   Statistics view (database size, key count, compaction stats)
 -   Compaction visibility
--   Plugin support
 
 ## Keywords
 

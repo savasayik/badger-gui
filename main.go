@@ -11,7 +11,7 @@ import (
 	"log"
 	"os"
 
-	"badge-reader/internal/app"
+	"badger-gui/internal/app"
 
 	"github.com/urfave/cli/v3"
 )

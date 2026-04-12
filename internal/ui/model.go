@@ -36,17 +36,23 @@ func NewModel(store Store, dbPath string) Model {
 	pi.CharLimit = 256
 	pi.Prompt = "Pattern: "
 
+	ni := textinput.New()
+	ni.Placeholder = "my:new:key"
+	ni.CharLimit = 512
+	ni.Prompt = "Key: "
+
 	sp := spinner.New()
 	sp.Spinner = spinner.Dot
 
 	return Model{
 		store:        store,
 		list:         l,
-		status:       "↑/↓: list · Enter: load & focus value · Esc/Shift+←: back · t/h/b/j: format · /: filter · e: edit · d/Delete: delete · p: delete pattern · g: groups · F1: about · q: exit",
+		status:       "↑/↓: list · Enter: load · /: filter · e: edit · n: new · d: delete · p: pattern · c: copy · x/X: export · Ctrl+Z: undo · g: groups · q: exit",
 		valFormat:    fmtJSON,
 		editor:       ta,
 		dbPath:       dbPath,
 		patternInput: pi,
+		newKeyInput:  ni,
 		groupSpinner: sp,
 		pageSize:     defaultPageSize,
 		hasMoreKeys:  true,
@@ -148,12 +154,49 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, nil
 		}
 
+		// Handle new key name input.
+		if m.creatingKey {
+			switch msg.String() {
+			case "esc":
+				m.creatingKey = false
+				m.newKeyInput.Blur()
+				m.status = "New key canceled."
+				return m, nil
+			case "enter":
+				name := strings.TrimSpace(m.newKeyInput.Value())
+				if name == "" {
+					m.creatingKey = false
+					m.newKeyInput.Blur()
+					m.status = "New key canceled (empty name)."
+					return m, nil
+				}
+				m.creatingKey = false
+				m.newKeyInput.Blur()
+				m.creatingValue = true
+				m.newKeyName = name
+				m.editing = true
+				m.editKey = name
+				m.focusRight = true
+				m.editor.SetValue("")
+				m.editor.CursorEnd()
+				m.lastLoadValue = nil
+				m.status = fmt.Sprintf("Enter value for '%s'. (Ctrl+S save · Esc cancel)", name)
+				m.updateEditorLayout(computeLayout(m.width, m.height))
+				return m, m.editor.Focus()
+			}
+			var ncmd tea.Cmd
+			m.newKeyInput, ncmd = m.newKeyInput.Update(msg)
+			return m, ncmd
+		}
+
 		// Handle edit mode.
 		if m.editing {
 			switch msg.String() {
 			case "esc":
 				m.editing = false
-				m.editKey = "" // Clear the edit key when canceling.
+				m.editKey = ""
+				m.creatingValue = false
+				m.newKeyName = ""
 				m.focusRight = true
 				m.status = "Edit canceled."
 				m.updateEditorLayout(computeLayout(m.width, m.height))
@@ -166,6 +209,11 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					return m, nil
 				}
 				m.status = "Saving..."
+				if m.creatingValue {
+					m.pushUndo(undoEntry{op: undoCreate, key: m.editKey})
+					return m, createKeyCmd(m.store, m.editKey, bytes)
+				}
+				m.pushUndo(undoEntry{op: undoEdit, key: m.editKey, oldValue: m.lastLoadValue})
 				return m, saveValueCmd(m.store, m.editKey, bytes)
 			}
 			// Pass through other editor keys.
@@ -214,6 +262,17 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return maybeFilter, tea.Batch(cmd, filterCmd)
 		}
 
+		// Handle undo in any non-modal, non-editing state.
+		if msg.String() == "ctrl+z" && !m.editing && !m.creatingKey {
+			entry, ok := m.popUndo()
+			if !ok {
+				m.status = "Nothing to undo."
+				return m, nil
+			}
+			m.status = "Undoing..."
+			return m, undoCmd(m.store, entry)
+		}
+
 		// Handle right-panel focus (value view).
 		if m.focusRight && !m.editing {
 			switch msg.String() {
@@ -245,6 +304,18 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.status = "Loading..."
 					return m, loadValueCmd(m.store, m.selected)
 				}
+			case "c":
+				if m.selected != "" && m.lastLoadValue != nil {
+					content := m.plainFormatValue(m.lastLoadValue)
+					return m, copyToClipboardCmd(content, "value")
+				}
+				return m, nil
+			case "x":
+				if m.selected != "" {
+					m.status = "Exporting..."
+					return m, exportSingleCmd(m.store, m.selected)
+				}
+				return m, nil
 			case "g", "G", "ctrl+g":
 				return m.toggleGroupCounts()
 			}
@@ -311,6 +382,39 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				// Load the value via loadValueCmd.
 				return m, loadValueCmd(m.store, i.key)
 			}
+		case "n":
+			m.creatingKey = true
+			m.newKeyInput.SetValue("")
+			m.newKeyInput.Focus()
+			m.status = "New key. Enter key name: (Enter confirm · Esc cancel)"
+			return m, nil
+		case "x":
+			i, ok := m.list.SelectedItem().(kvItem)
+			if ok {
+				m.status = "Exporting..."
+				return m, exportSingleCmd(m.store, i.key)
+			}
+			return m, nil
+		case "X":
+			visible := m.list.VisibleItems()
+			if len(visible) == 0 {
+				m.status = "No keys to export."
+				return m, nil
+			}
+			keys := make([]string, 0, len(visible))
+			for _, it := range visible {
+				if ki, ok := it.(kvItem); ok {
+					keys = append(keys, ki.key)
+				}
+			}
+			m.status = fmt.Sprintf("Exporting %d keys...", len(keys))
+			return m, exportVisibleCmd(m.store, keys)
+		case "c":
+			i, ok := m.list.SelectedItem().(kvItem)
+			if ok {
+				return m, copyToClipboardCmd(i.key, "key name")
+			}
+			return m, nil
 		case "g", "G", "ctrl+g":
 			return m.toggleGroupCounts()
 		}
@@ -437,6 +541,9 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.status = fmt.Sprintf("Error: delete failed: %v", msg.err)
 			return m, nil
 		}
+		if msg.oldValue != nil {
+			m.pushUndo(undoEntry{op: undoDelete, key: msg.key, oldValue: msg.oldValue})
+		}
 		// Remove the selected item from the list.
 		idx := m.list.Index()
 		if idx >= 0 && idx < len(m.list.Items()) {
@@ -456,6 +563,12 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		if len(msg.keys) == 0 {
 			m.status = errStyle.Render(fmt.Sprintf("Warning: no matches for pattern: %s", msg.pattern))
 			return m, nil
+		}
+
+		for _, k := range msg.keys {
+			if v, ok := msg.oldValues[k]; ok {
+				m.pushUndo(undoEntry{op: undoDelete, key: k, oldValue: v})
+			}
 		}
 
 		remove := make(map[string]struct{}, len(msg.keys))
@@ -482,17 +595,84 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.status = okStyle.Render(fmt.Sprintf("Deleted %d records (pattern: %s).", len(msg.keys), msg.pattern))
 		return m, cmd
 
+	case undoResultMsg:
+		if msg.err != nil {
+			m.status = errStyle.Render(fmt.Sprintf("Error: undo failed: %v", msg.err))
+			return m, nil
+		}
+		switch msg.op {
+		case undoEdit:
+			m.status = okStyle.Render(fmt.Sprintf("Undo: '%s' restored to previous value.", msg.key))
+			if m.selected == msg.key {
+				return m, loadValueCmd(m.store, msg.key)
+			}
+		case undoDelete:
+			m.status = okStyle.Render(fmt.Sprintf("Undo: '%s' restored.", msg.key))
+			items := m.list.Items()
+			items = append(items, kvItem{key: msg.key})
+			cmd := m.list.SetItems(items)
+			return m, cmd
+		case undoCreate:
+			m.status = okStyle.Render(fmt.Sprintf("Undo: created key '%s' removed.", msg.key))
+			for i, it := range m.list.Items() {
+				if ki, ok := it.(kvItem); ok && ki.key == msg.key {
+					m.list.RemoveItem(i)
+					break
+				}
+			}
+			if m.selected == msg.key {
+				m.selected = ""
+				m.viewport.SetContent("")
+			}
+		}
+		return m, nil
+
+	case exportResultMsg:
+		if msg.err != nil {
+			m.status = errStyle.Render(fmt.Sprintf("Error: export failed: %v", msg.err))
+			return m, nil
+		}
+		m.status = okStyle.Render(fmt.Sprintf("Exported %d key(s) to %s", msg.count, msg.filePath))
+		return m, nil
+
+	case clipboardResultMsg:
+		if msg.err != nil {
+			m.status = errStyle.Render(fmt.Sprintf("Error: clipboard: %v", msg.err))
+			return m, nil
+		}
+		m.status = okStyle.Render(fmt.Sprintf("Copied %s to clipboard.", msg.what))
+		return m, nil
+
 	case saveResultMsg:
 		if msg.err != nil {
 			m.status = errStyle.Render(fmt.Sprintf("Error: save failed: %v", msg.err))
 			return m, nil
 		}
 		m.editing = false
-		m.editKey = "" // Clear editKey after a successful save.
+		m.editKey = ""
 		m.focusRight = true
-		m.status = okStyle.Render(fmt.Sprintf("'%s' updated.", msg.key))
 		m.updateEditorLayout(computeLayout(m.width, m.height))
-		// Reload the right panel.
+
+		if msg.isNew {
+			m.creatingValue = false
+			m.newKeyName = ""
+			m.selected = msg.key
+			// Add the new key to the list.
+			items := m.list.Items()
+			items = append(items, kvItem{key: msg.key})
+			setCmd := m.list.SetItems(items)
+			// Select the new item.
+			for i, it := range m.list.Items() {
+				if ki, ok := it.(kvItem); ok && ki.key == msg.key {
+					m.list.Select(i)
+					break
+				}
+			}
+			m.status = okStyle.Render(fmt.Sprintf("'%s' created.", msg.key))
+			return m, tea.Batch(setCmd, loadValueCmd(m.store, msg.key))
+		}
+
+		m.status = okStyle.Render(fmt.Sprintf("'%s' updated.", msg.key))
 		return m, loadValueCmd(m.store, msg.key)
 	}
 
@@ -600,6 +780,22 @@ func (m Model) maybeStartFilterWork() (Model, tea.Cmd) {
 		return m, nil
 	}
 	return m, tea.Batch(cmds...)
+}
+
+func (m *Model) pushUndo(entry undoEntry) {
+	m.undoStack = append(m.undoStack, entry)
+	if len(m.undoStack) > 20 {
+		m.undoStack = m.undoStack[len(m.undoStack)-20:]
+	}
+}
+
+func (m *Model) popUndo() (undoEntry, bool) {
+	if len(m.undoStack) == 0 {
+		return undoEntry{}, false
+	}
+	entry := m.undoStack[len(m.undoStack)-1]
+	m.undoStack = m.undoStack[:len(m.undoStack)-1]
+	return entry, true
 }
 
 func (m Model) toggleGroupCounts() (Model, tea.Cmd) {

@@ -55,7 +55,9 @@ func (m Model) View() string {
 	spacer := strings.Repeat(" ", panelGap)
 	body := lipgloss.JoinHorizontal(lipgloss.Top, left, spacer, right)
 	footerText := m.status
-	if m.patternDelete {
+	if m.creatingKey {
+		footerText = "New key: " + m.newKeyInput.View() + "  (Enter confirm · Esc cancel)"
+	} else if m.patternDelete {
 		footerText = "Delete pattern (glob): " + m.patternInput.View() + "  (Enter confirm · Esc cancel)"
 	}
 	footer := footerBarStyle.Render(padToWidth(truncateString(footerText, lay.innerWidth), lay.innerWidth))

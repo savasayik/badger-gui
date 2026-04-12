@@ -55,6 +55,32 @@ func (m Model) formatValue(_ string, v []byte) string {
 	}
 }
 
+func (m Model) plainFormatValue(v []byte) string {
+	switch m.valFormat {
+	case fmtText:
+		if utf8.Valid(v) {
+			return string(v)
+		}
+		return base64.StdEncoding.EncodeToString(v)
+	case fmtHex:
+		return hex.Dump(v)
+	case fmtBase64:
+		return base64.StdEncoding.EncodeToString(v)
+	case fmtJSON:
+		if !utf8.Valid(v) {
+			return base64.StdEncoding.EncodeToString(v)
+		}
+		var any interface{}
+		if err := json.Unmarshal(v, &any); err != nil {
+			return string(v)
+		}
+		pretty, _ := json.MarshalIndent(any, "", "  ")
+		return string(pretty)
+	default:
+		return string(v)
+	}
+}
+
 func (m Model) reloadSelected() (tea.Model, tea.Cmd) {
 	if m.selected == "" {
 		if i, ok := m.list.SelectedItem().(kvItem); ok {

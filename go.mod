@@ -1,4 +1,4 @@
-module badge-reader
+module badger-gui
 
 go 1.25
 
